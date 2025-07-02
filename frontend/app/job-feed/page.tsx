@@ -1,12 +1,33 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect, useState } from 'react'
 import JobPosting from '../components/JobPosting';
+import { Job } from "@/types/Job";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const JobFeed = () => {
-    const jobPostings = [
-        { id: 1, title: "Software Engineer", company: "Tech Corp", location: "Remote" },
-        { id: 2, title: "Data Scientist", company: "Data Inc", location: "New York" },
-        { id: 3, title: "Product Manager", company: "Product Co", location: "San Francisco" }
-    ];
+    const [jobPostings, setJobPostings] = useState<Job[]>([]);
+
+    const fetchAndSetJobPostings = async() => {
+        try {
+            const jobs = await fetch(`${API_URL}/jobs`, {
+                method: "GET"
+            });
+            if (!jobs.ok) {
+                throw new Error("Failed to fetch job postings");
+            }
+            const data = await jobs.json();
+            setJobPostings(data);
+        }
+        catch (err) {
+            console.error("Error fetching job postings:", err);
+        }
+    }
+
+    useEffect(() => {
+        fetchAndSetJobPostings();
+    }, [])
 
     return (
     <div className="flex flex-col justify-center items-center p-4 gap-2">
