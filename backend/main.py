@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from services.scraper import scrape_jobs
 
 app = FastAPI()
+
+jobs_db = scrape_jobs()
 
 # CORS middleware
 app.add_middleware(
@@ -14,13 +17,9 @@ app.add_middleware(
 
 @app.get("/api/jobs")
 async def get_jobs():
-    return [
-        {"id": 1, "title": "Software Engineer", "company": "Tech Corp", "location": "Tokyo"},
-        {"id": 2, "title": "Data Scientist", "company": "Data Inc", "location": "Fukuoka"},
-        {"id": 3, "title": "Product Manager", "company": "Product Co", "location": "Osaka"}
-    ]
+    return jobs_db
 
-@app.get("/api/jobs/{job_id}")
+@app.get("/api/jobs/{id}")
 async def get_job_by_id(id: int):
     # mocking db select by id
-    return {"id": id, "title": "Sample Job", "company": "Sample Company", "location": "Sample Location"}
+    return jobs_db[id - 1]
