@@ -14,19 +14,19 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="/job-feed"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
           >
             View Job Feed
           </a>
           <a
-            href="/job-application"
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+            href="/submit-resume"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
           >
-            Create My Profile
+            Submit Your Resume
           </a>
           <a
-            href="/job-application"
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+            href="/resume-builder"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
           >
             Resume Builder
           </a>
