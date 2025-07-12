@@ -52,6 +52,12 @@ cd job-finder
 cd backend
 ```
 
+#### Create a virtual environment and activate it
+```bash
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
 #### Install Python dependencies
 ```bash
 pip install -r requirements.txt
