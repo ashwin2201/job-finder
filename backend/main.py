@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models.resume import ResumeInfo
-from .services.scraper import scrape_jobs
-from .services.job_matcher import match_jobs_tfidf
+from models.resume import ResumeInfo
+from services.scraper import scrape_jobs
+from services.job_matcher import match_jobs_tfidf
 
 app = FastAPI()
 
