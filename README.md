@@ -31,8 +31,8 @@ A full-stack job portal built with FastAPI (Python) backend and Next.js (TypeScr
 
 Before running the application, make sure you have the following installed:
 
-- **Python 3.8+**
-- **Node.js 18+**
+- **Python 3.12.6**
+- **Node.js 22.11.0**
 - **npm or yarn**
 - **Git**
 
