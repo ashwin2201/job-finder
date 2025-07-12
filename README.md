@@ -41,7 +41,7 @@ Before running the application, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/ashwin2201/job-finder.git
 cd job-finder
 ```
 
