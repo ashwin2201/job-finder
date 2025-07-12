@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import JobPosting from '../components/JobPosting';
+import JobPosting from '../../components/JobPosting';
 import { Job } from "@/types/Job";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
