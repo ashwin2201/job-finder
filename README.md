@@ -61,7 +61,7 @@ pip install -r requirements.txt
 
 #### Navigate to frontend directory
 ```bash
-cd ../frontend
+cd frontend
 ```
 
 #### Install Node.js dependencies
