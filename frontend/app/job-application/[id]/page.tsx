@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect } from 'react'
-import JobApplicationForm from '../../components/JobApplicationForm';
+import JobApplicationForm from '../../../components/JobApplicationForm';
 import { Job } from "@/types/Job";
 
 const JobApplicationPage = () => {
