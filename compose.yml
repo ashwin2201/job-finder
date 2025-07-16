@@ -8,8 +8,8 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend:/app
+      - /app/node_modules
     env_file:
       - ./frontend/.env.local
     restart: always

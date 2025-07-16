@@ -17,7 +17,7 @@ type JobPostingProps = {
 
 const JobPosting = ({ job } : JobPostingProps ) => {
   return (
-    <Card className="w-1/3">
+    <Card className="w-full">
         <CardHeader>
             <CardTitle>{job.title}</CardTitle>
         </CardHeader>

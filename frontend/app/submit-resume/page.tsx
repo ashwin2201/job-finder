@@ -128,7 +128,7 @@ const SubmitResume = () => {
                             <textarea 
                                 {...field}
                                 placeholder="Paste your resume text here..."
-                                className="min-h-[200px] w-full p-3 border border-gray-300 rounded-md resize-vertical"
+                                className="w-full p-3 border border-gray-300 rounded-md resize-vertical"
                             />
                         </FormControl>
                         <FormDescription>
@@ -139,7 +139,7 @@ const SubmitResume = () => {
                     )}
                 />
 
-                <Button type="submit">Submit</Button>
+                <Button className="bg-primary cursor" type="submit">Submit</Button>
                 </form>
             </Form>
 

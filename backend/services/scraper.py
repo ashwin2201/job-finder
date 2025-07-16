@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
+from models.job import Job
 
 base_url = "https://jobs.gaijinpot.com"
 r = requests.get(base_url + "/en/job")
 
 soup = BeautifulSoup(r.content, "lxml")
 
-def scrape_jobs():
+def scrape_jobs() -> list[Job]:
     jobs = []
     job_listings = soup.find_all("div", class_="card")
     for job in job_listings:
@@ -18,14 +19,15 @@ def scrape_jobs():
 
         detail_card = title_card.find_next_sibling("div", class_="card-item")
         description = get_job_description(detail_card)
-
-        jobs.append({
-            "id": len(jobs) + 1, 
-            "title": title,
-            "company": company,
-            "location": location,
-            "description": description
-        })
+        
+        job = Job(
+            id=len(jobs) + 1, 
+            title=title,
+            company=company,
+            location=location,
+            description=description
+        )
+        jobs.append(job)
 
     return jobs
 
