@@ -8,11 +8,16 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend:/app
+      - ./frontend/node_modules:/app/node_modules
+      - ./frontend/.next:/app/.next
     env_file:
       - ./frontend/.env.local
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
     restart: always
+    command: npm run dev
     depends_on:
       - backend
   
