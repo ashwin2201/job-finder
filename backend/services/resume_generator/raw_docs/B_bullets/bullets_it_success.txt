@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="https://www.hop-job.com/service/wp-content/themes/mirai-torch/favicon.ico">
+    
+        <title>【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート | 【無料】スマホで履歴書・職務経歴書作成｜テンプレートからWeb作成 | ミライトーチResume</title>
+        <meta name="description" content="">
+        <meta property="og:url" content="https://www.hop-job.com/service/s004/" />
+    <meta property="og:title" content="【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート | 【無料】スマホで履歴書・職務経歴書作成｜テンプレートからWeb作成 | ミライトーチResume" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/ogp-min.png" />
+    <meta property="og:site_name" content="【無料】スマホで履歴書・職務経歴書作成｜テンプレートからWeb作成 | ミライトーチResume" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0085FF">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0085FF">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0085FF">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Noto+Sans+JP:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://www.hop-job.com/service/wp-content/themes/mirai-torch/css/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
+        integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://www.hop-job.com/service/wp-content/themes/mirai-torch/style.css?1742528865">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+        <script src="https://unpkg.com/vue-router@4"></script>
+    <script src="https://unpkg.com/http-vue-loader"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"
+        integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dexie/3.2.2/dexie.min.js"
+        integrity="sha512-/Aa8vGWIh0EnOTIVN/ZWTS3UqyJJDhWYtIPS/IqtaaSG0VA6hC6CSvtWdh2+T72q74+2l1RFgu+ig91LGLX57A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script>
+    const path = "https://www.hop-job.com/service/wp-content/themes/mirai-torch";
+    const isProduction = 1;
+    </script>
+            <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://www.hop-job.com/",
+                "name": "トップ"
+            }
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://www.hop-job.com/resume/",
+                "name": "履歴書作成ツール"
+            }
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://www.hop-job.com/service/c-shokumukeirekisho/",
+                "name": "職務経歴書"
+            }
+        }, {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+                "@id": "https://www.hop-job.com/service/s004/",
+                "name": "【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート"
+            }
+        }]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.hop-job.com/service/s004/"
+        },
+        "headline": "【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/service/wp-content/uploads/2024/02/アイキャッチ-37-1.png"
+        },
+        "datePublished": "2024-02-22T12:43:20+0900",
+        "dateModified": "2025-02-07T17:10:25+0900",
+        "author": {
+            "@type": "Organization",
+            "name": "株式会社キュービック",
+            "url": "https://cuebic.co.jp",
+            "founder": "世一 英仁",
+            "foundingDate": "2006-10",
+            "address": {
+                "@type": "PostalAddress",
+                "postalCode": "169-0074",
+                "addressRegion": "東京都",
+                "addressLocality": "新宿区",
+                "streetAddress": "北新宿2-21-1 新宿フロントタワー16階"
+            },
+            "telephone": "+81-3-5338-3550"
+        },
+        "articleBody": "紹介する職務経歴書の見本は、すべてエンジニア職からの転職に成功した方が実際に転職活動で使っていた職務経歴書です。比較しながら職務経歴書の書き方の参考にしてみてください。 履歴書・職務経歴書ツールなら書き方やマナーを気にせ [&hellip;]"
+    }
+    </script>
+
+    
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-53B53KBN');</script>
+    <!-- End Google Tag Manager -->
+        <meta name='robots' content='max-image-preview:large' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.hop-job.com/service/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='toc-screen-css' href='https://www.hop-job.com/service/wp-content/plugins/table-of-contents-plus/screen.min.css' type='text/css' media='all' />
+<script type="text/javascript" src="https://www.hop-job.com/service/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.hop-job.com/service/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<link rel="canonical" href="https://www.hop-job.com/service/s004/" />
+<noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><style>.lazyload{background-image:none !important;}.lazyload:before{background-image:none !important;}</style><link rel="icon" href="/service/wp-content/uploads/2023/01/cropped-icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="/service/wp-content/uploads/2023/01/cropped-icon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/service/wp-content/uploads/2023/01/cropped-icon-180x180.png" />
+<meta name="msapplication-TileImage" content="/service/wp-content/uploads/2023/01/cropped-icon-270x270.png" />
+    <script src="https://cdn-blocks.karte.io/7b0f2a6734d577efaf81858894263076/builder.js"></script>
+</head>
+
+<body>
+<script data-cfasync="false" data-no-defer="1">var ewww_webp_supported=false;</script>
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53B53KBN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header class="l-header">
+        <div class="c-header">
+            <div class="c-header__logo">
+                <a href="//www.hop-job.com/"><img
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="ミライトーチのロゴ" data-src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/header_logo.svg" decoding="async" class="lazyload"><noscript><img
+                        src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/header_logo.svg" alt="ミライトーチのロゴ" data-eio="l"></noscript></a>
+            </div>
+            <nav class="c-header__nav">
+                <ul class="c-header__nav__list">
+                    <li><a href="https://www.hop-job.com/resume/">履歴書・職務経歴書作成</a></li>
+                    <li class="external"><a href="https://www.hop-job.com/ai-job-aptitude/" target="_blank">AI適職診断</a></li>
+                    <li class="external"><a href="https://www.hop-job.com/" target="_blank">トップページ</a></li>
+                </ul>
+            </nav>
+            <!-- Add hamburger menu button -->
+            <div class="c-header__nav__links">
+                <button class="c-header__nav__button">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="c-header__nav__button__text">メニュー</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="c-nav-bg"></div>
+    </header>
+<div class="l-main">
+        
+    <article class="p-wp-post">
+      <div class="c-bread-nav"><ul class="c-bread-nav__list"><li class="c-bread-nav__list__item"><a href="https://www.hop-job.com/" class="c-bread-nav__list__link">トップ</a><span class="material-symbols-outlined">navigate_next</span></li><li class="c-bread-nav__list__item"><a href="https://www.hop-job.com/resume/" class="c-bread-nav__list__link">履歴書作成ツール</a><span class="material-symbols-outlined">navigate_next</span></li><li class="c-bread-nav__list__item"><a href="https://www.hop-job.com/service/c-shokumukeirekisho/">職務経歴書</a><span class="material-symbols-outlined">navigate_next</span></li><li class="c-bread-nav__list__item">【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート</li></ul></div>      
+        <div class="p-wp-post__header">
+            <div class="p-wp-post__meta">
+                <!-- カテゴリ -->
+                <div class="p-wp-post__meta__category">
+                    <a href="https://www.hop-job.com/service/c-shokumukeirekisho/" rel="category tag">職務経歴書</a>                </div>
+                <time class="p-wp-post__meta__date p-wp-post__meta__date--modified"
+                    datetime="2025-02-07T17:10:25+09:00">
+                    更新日：
+                    <span class="material-symbols-outlined">
+                        update
+                    </span>2025年2月7日                </time>
+
+            </div>
+
+            <!-- タイトル -->
+            <h1 class="p-wp-post__title">【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート</h1>
+
+            <!-- アイキャッチ -->
+                        <div class="p-wp-post__thumbnail">
+                <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="" decoding="async" fetchpriority="high" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2024/02/アイキャッチ-37-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-768x576.png 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2024/02/アイキャッチ-37-1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2024/02/アイキャッチ-37-1-768x576.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>            </div>
+                    </div>
+        <!-- 本文 -->
+        <div class="p-wp-post__content">
+            <p>紹介する職務経歴書の見本は、すべてエンジニア職からの転職に成功した方が実際に転職活動で使っていた職務経歴書です。比較しながら職務経歴書の書き方の参考にしてみてください。</p>
+<section class="c-resume-induction">
+<div class="c-resume-induction__caption">履歴書・職務経歴書ツールなら<span class="u-marker-blue">書き方やマナーを気にせず</span>Webで完結！</div>
+<p>ミライトーチResumeでは履歴書・職務経歴書をスマホやパソコンで無料で作成できます。</p>
+<p>画面に沿って内容を埋めていくだけで、書類の書き方やマナーで迷うことなく簡単に書類が完成します。</p>
+<div class="c-resume-induction_btn">
+<div class="c-resume-induction_btn__label">スマホで楽々</div>
+<p><a href="https://www.hop-job.com/resume/">職務経歴書を<br />
+スマホやパソコンで作成する</a></p>
+</div>
+</section>
+<div id="toc_container" class="no_bullets"><p class="toc_title">目次</p><ul class="toc_list"><li><a href="#i"><span class="toc_number toc_depth_1">1</span> エンジニア職の職務経歴書の書き方のポイント</a></li><li><a href="#i-2"><span class="toc_number toc_depth_1">2</span> エンジニアの職務経歴書の基本構成</a></li><li><a href="#i-3"><span class="toc_number toc_depth_1">3</span> 【見本１】データベースエンジニア経験者の職務経歴書</a></li><li><a href="#i-4"><span class="toc_number toc_depth_1">4</span> 【見本２】アプリケーションエンジニア経験者の職務経歴書</a></li><li><a href="#i-5"><span class="toc_number toc_depth_1">5</span> 【見本３】システムエンジニア経験者の職務経歴書</a></li><li><a href="#i-6"><span class="toc_number toc_depth_1">6</span> エンジニアの職務経歴書のテンプレートをダウンロード</a></li><li><a href="#Web"><span class="toc_number toc_depth_1">7</span> スマホで職務経歴書を作るなら【職務経歴書Web作成ツール】が便利</a></li></ul></div>
+<h2><span id="i">エンジニア職の職務経歴書の書き方のポイント</span></h2>
+<div style="background: #F0F8FF; border: 4px double #6091D3; box-shadow: 0 0 0 10px #F0F8FF; padding: 10px;">
+<p><strong>書き方のポイント</strong></p>
+<ol>
+<li>プロジェクトの中で自分が担当した業務を具体的に記載しましょう。</li>
+<li>プロジェクトごとに開発言語や開発環境を記載しましょう。</li>
+<li>組織/チームの中での役割や責任範囲を記載しましょう。</li>
+<li>日々の業務において工夫した点を記載しましょう。</li>
+</ol>
+</div>
+<p>&nbsp;</p>
+<p>エンジニア職で採用側が見ているポイントはおもに「技術環境」と「担当工程・役割」の2つです。</p>
+<p>「技術環境」については、得意もしくは経験年数が長い技術環境を、職務要約や保有技術などの項目で書くとよいでしょう。そうすることで技術上の強みが伝わりやすくなります。また<span style="color: #ff0000;"><strong>期間の短いプロジェクトであっても、別の技術環境のプロジェクトであれば書いておくとよいでしょう。</strong></span>そうすることで、自身の技術の幅が伝わりやすくなります。</p>
+<p>「担当工程」については、<strong><span style="color: #ff0000;">基本設計、詳細設計、運用などメインで担当した工程をプロジェクトごとに書くとよいでしょう。</span></strong>またPM、PL、チームリーダーなど、役割とチーム人数をプロジェクトごとに書くとよいでしょう。</p>
+<h2><span id="i-2">エンジニアの職務経歴書の基本構成</span></h2>
+<p>エンジニアの職務経歴書は、基本的に以下6点から構成されます。職務経歴書を作成する際は、以下の構成を参考にしながら作成しましょう。</p>
+<p><img decoding="async" class="aligncenter size-full wp-image-2050 lazyload"  alt="" width="1449" height="2048" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/resume/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1.png 1449w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-212x300.png 212w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-725x1024.png 725w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-768x1085.png 768w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-1087x1536.png 1087w" data-sizes="auto" /><noscript><img decoding="async" class="aligncenter size-full wp-image-2050" src="/resume/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1.png" alt="" width="1449" height="2048" srcset="https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1.png 1449w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-212x300.png 212w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-725x1024.png 725w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-768x1085.png 768w, https://www.hop-job.com/service/wp-content/uploads/2024/02/職務経歴書の基本構成画像-1-1087x1536.png 1087w" sizes="(max-width: 1449px) 100vw, 1449px" data-eio="l" /></noscript></p>
+<h2><span id="i-3">【見本１】データベースエンジニア経験者の職務経歴書</span></h2>
+<h3>元リクルートCAからのアドバイス</h3>
+<div style="background: #F0F8FF; border: 4px double #6091D3; box-shadow: 0 0 0 10px #F0F8FF; padding: 10px;">
+<p>「プロジェクトの中での自分の担当フェーズを明記していること」「研修期間中のことも記載していること」の2つが見本1の職務経歴書の特に良いところです。<strong><span style="color: #ff0000;">プロジェクトの中のどういったポジションでどのように業務を遂行しているのか具体的にイメージすることができます。</span></strong></p>
+<p>「自己PRに具体的エピソードが少ないこと」「自信のある技術環境についての言及がないこと」は、反対にこの職務経歴書の改善ポイントといえます。採用後のイメージをもってもらうためにも、できることや取り組んだことはしっかりとアピールをするとよいでしょう。</p>
+</div>
+<h3><strong>情報通信業/技術職から情報通信業/技術職へ転職</strong></h3>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>職務要約</h4>
+<p>2022年4月〜2023年9月退職予定：株式会社〇〇</p>
+<p>大学卒業後入社し、3ヶ月の研修期間を終えた後、約1年間、おもにシステム運用業務に携わっております。お客様から依頼された作業や、マニュアル改訂などを対応し、お客様にご報告させていただいております。毎日違う業務が絶え間なく依頼される関係上、抜け漏れがないように抱えているタスクをtodoにまとめて管理するように心掛けておりました。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>職務経歴</h4>
+<p><strong>20XX年X月～20XX年X月　開発研修</strong></p>
+<p><strong>＜概要＞</strong></p>
+<p>何社かの新入社員が合同で研修を行う形態で実施されていました。おもな学習内容としましては、HTMLからJavaまでと基礎的な部分となっておりました。基本的にはリモートでの研修でしたが、週に一度ほどは集合研修が行われており、対面で講師に質問ができる環境も充実しておりました。</p>
+<p>担当フェーズ：要件定義・基本設計・詳細設計・開発・導入・運用/保守</p>
+<p><strong>＜取り組み＞</strong></p>
+<p>大学で開発をしたことがなかったため、研修で学んだことはその日のうちに復習してなるべく忘れないようにしようと心掛けておりました。また講師の教えとして、プログラミングが自分の思うように動いたときは喜ぶということを実践するようにしておりました。喜ぶことで自信や達成感を味わうことができ、継続力につながりました。</p>
+<p><strong>＜環境＞</strong></p>
+<p>・Windows<br />
+・Java<br />
+・HTML<br />
+・CSS<br />
+・SQL</p>
+<hr />
+<p><b>20XX年X月～現在まで　</b></p>
+<p>事業内容：ソフトウェア</p>
+<p>プロジェクト内容：医薬品副作用のデータベースの運用・保守</p>
+<p><strong>＜概要＞</strong></p>
+<p>お客様が構築をされた医薬品の副作用をまとめたデータベースの運用・保守を担当しております。おもにシステムから出力されるログを収集し、AccessやVBAなどのツールを使って集計を行い、結果をメールでお客様にご報告する業務を実施させていただいております。また、お客様からファイルの持ち込みなども依頼され、既存のマニュアルを参照しながら対応を進めております。その他にはマニュアルの改訂などに対応しております。</p>
+<p>担当フェーズ：保守・運用</p>
+<p><strong>＜取り組み＞</strong></p>
+<p>基本的に毎日同じ業務を行うため、作業開始時間と作業終了時間を計測し自分が今どこまで作業を完了しているのか可視化するようにしております。また日々お客様に対して作業日報を作成しており、あらゆるケースを1つのExcelで確認できるようにキャプチャを取得しまとめております。</p>
+<p><strong>＜環境＞</strong></p>
+<p>・Windows<br />
+・MySQL<br />
+・Access<br />
+・VBA<br />
+・PowerShell</p>
+<p><strong>＜役割/規模＞</strong></p>
+<p>メンバー</p>
+<p>チーム:8名（運用メンバー：3名（うち1人はリーダー）・保守メンバー：5名）</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>生かせるスキル・資格</h4>
+<p><strong>＜語学＞</strong></p>
+<p>・英語</p>
+<p>TOEIC：××点</p>
+<p>ビジネス使用経験：経験あり （文書・マニュアル読解）</p>
+<hr />
+<p><strong>＜PCスキル＞</strong></p>
+<ul>
+<li>Excel：入力・集計、表・グラフ、関数計算を業務で使用。マクロは現在勉強中。</li>
+<li>Word：文字入力、図表挿入、校正機能（コメントの追加、削除・変更履歴の記録・削除）を業務で使用。</li>
+<li>PowerPoint：文字入力、図版作成で使用。</li>
+<li>Access：入力・既存のマクロ集計業務で使用。</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>自己PR</h4>
+<p><strong>【正確性のある業務遂行力】</strong></p>
+<p>マニュアルのチェック漏れや報告時のメール内容の確認など、小さなミスも許されない状況での作業のため、常に注意を怠らないように意識しながら対応しています。特にダブルチェックの実施を心掛けております。また、私たちが担っている業務はミスがあると社会への影響度が大きいものもあるため、正しい作業を行うことへの責任感をもっております。</p>
+<p><strong>【改善力】</strong></p>
+<p>これまでマニュアル、業務フローの作成、並びに改訂を積極的に取り組んでまいりました。 どの作業者が見ても正しく理解でき作業を実施できるか、ミスなく効率的に行うことができるか考えながらマニュアル等を参照しております。実際に改善点を見つけた場合は、所定のExcelシートに情報を記載し、対応方法を練ったうえでマニュアルに反映するようにしております。</p>
+<p><strong>【自己研鑽力】</strong></p>
+<p>文系の大学を卒業した後に現職のIT業界にチャレンジしました。「基本情報技術者試験」に合格できるよう、業務外でも勉強を行い、勉強スタイルも決めていたことで学習を進めてまいりました。具体的には勉強を進めるうえで自分が知らない知識をWordやExcelにまとめ、いつでも復習できるようなドキュメントを作成しておりました。現職では、日頃からまずは自分で考えて、わからない箇所に関してはネットで情報がないか調べるようにしております。そのうえで答えが出ない場合は、疑問点を明確にしたうえで質問するようにしております。</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="i-4">【見本２】アプリケーションエンジニア経験者の職務経歴書</span></h2>
+<h3>元リクルートCAからのアドバイス</h3>
+<div style="background: #F0F8FF; border: 4px double #6091D3; box-shadow: 0 0 0 10px #F0F8FF; padding: 10px;">
+<p>「プロジェクトの概要が詳細に記載されていること」「自己PRに具体的エピソードが入っていること」「得意な技術についてまとめて書かれていること」の3点が見本2の職務経歴書の特に良い点といえるでしょう。<strong><span style="color: #ff0000;">プロジェクトの中でどういった業務を担当し、何を得意としている人なのかがよくわかります。</span></strong></p>
+<p>実績欄に、やったことだけではなく「期限どおりにリリースができた」「システム導入によって売り上げが〇〇％上がった」など成果について記載できるとなお良いですね。</p>
+</div>
+<h3><strong>製造業/技術職から情報通信業/技術職へ転職</strong></h3>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>職務経歴要約</h4>
+<p>○○○○卒業後、○○○○に入社。</p>
+<p>○○○○年〇月 – ○○○○年〇月：社内CADシステム開発・保守部署<br />
+入社後、社内システムの開発・保守部署に所属。 5名のチームでインシデント対応や改善用のシステム構築を行いました。</p>
+<p>○○○○年〇月 – ○○○○年〇月: DX推進部門<br />
+3年目に異動し、DX推進部門に所属。 データ解析チームに参加し、発電所のデータ解析を担当。<br />
+その他、カスタマーセンターのシステム更新に関わり、モックアップサイトの作成を担いました。</p>
+<p>○○○○年〇月 – 現在　出向<br />
+関連子会社に出向し、業務システムの開発を担っています。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>職務経歴</h4>
+<p>大手企業（○○○○年〇月～現在）<br />
+資本金:○○億○○○○万円　従業員数：○○○○人　上場区分:上場</p>
+<hr />
+<p><strong>20XX年X月～20XX年X月</strong></p>
+<p><strong>＜プロジェクト概要＞</strong></p>
+<ul>
+<li>現在老朽化が進んでいるシステムを更新する</li>
+<li>C#とAutoLISPを用いて新規機能作成やシステム改善を実施し、CADシステムに貢献</li>
+<li>3DCADとの連携において市場調査を担当し、業界動向を把握</li>
+<li>工場でのリモートワークによる立会試験の推進に関わり、効率的な遠隔試験の実施をサポート</li>
+</ul>
+<p><strong>＜業務内容＞</strong></p>
+<ul>
+<li>新機能開発</li>
+<li>機能改善</li>
+<li>最適化</li>
+<li>ツール開発</li>
+<li>システム設計</li>
+<li>リリース作業</li>
+<li>試験</li>
+<li>市場調査</li>
+</ul>
+<p><strong>＜実績＞</strong></p>
+<ul>
+<li>おもに○○と○○○○を用いて新機能開発や既存機能の不具合の修正、拡張を実施</li>
+<li>3DCADとの連携のために、市場調査やオープンソースの調査を実施</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows</li>
+<li>.NET FrameWork</li>
+<li>C#</li>
+<li>Auto LISP</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>プロジェクトメンバー20名</p>
+<hr />
+<p><b><strong>20XX年X月～20XX年X月</strong>　</b></p>
+<p><strong>＜プロジェクト概要＞</strong></p>
+<ul>
+<li>Pythonを用いたデータ解析手法を学び、時系列分析や回帰分析、クラスタリングを中心とした解析を実施</li>
+<li>解析結果をもとに、○○の提案を行う</li>
+<li>新入社員教育に参加し、システムを作成する課題で、リーダーとして取りまとめやフォローを行った</li>
+</ul>
+<p><strong>＜業務内容＞</strong></p>
+<ul>
+<li>データ分析</li>
+<li>資料作成</li>
+<li>新入社員教育での実習補助</li>
+<li>分析結果をもとにした施策立案</li>
+</ul>
+<p><strong>＜実績＞</strong></p>
+<ul>
+<li>Pythonを用いたデータ分析を実施し、回帰分析、クラスタリング等の各種手法を実施</li>
+<li>○○のデータを解析し、異常検知方法について考察</li>
+<li>新入社員教育におけるシステム開発においてチームリーダーを担う。進捗管理や、メンバーのフォローを行った</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows</li>
+<li>Python</li>
+<li>AWS</li>
+<li>JavaScript</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>プロジェクトメンバー20名</p>
+<hr />
+<p><b><strong>20XX年X月～20XX年X月</strong>　</b></p>
+<p><strong>＜プロジェクト概要＞</strong></p>
+<ul>
+<li>老朽化したシステムの更新を通し、業務効率化につなげる</li>
+</ul>
+<p><strong>＜業務内容＞</strong></p>
+<ul>
+<li>クライアント（ユーザー）への業務ヒアリング</li>
+<li>モックの作成</li>
+<li>ユーザーへの提案</li>
+</ul>
+<p><strong>＜実績＞</strong></p>
+<ul>
+<li>各種UIのモックを作成</li>
+<li>以前のシステムからの更新になるため、開発をモダンに行い、最新の環境でモックアップサイトを制作した</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows</li>
+<li>MySQL</li>
+<li>PHP</li>
+<li>HTML</li>
+<li>TypeScript</li>
+<li>React</li>
+<li>jQuery</li>
+<li>Figma</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>プロジェクトメンバー10名</p>
+<hr />
+<p><strong>20XX年X月～現在まで</strong></p>
+<p><strong>＜業務内容＞</strong></p>
+<ul>
+<li>関連子会社に出向</li>
+<li>○○予約システムの開発</li>
+<li>電話帳アプリの開発</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows</li>
+<li>Flask</li>
+<li>Python</li>
+<li> Type Script</li>
+<li>React</li>
+<li>SQLite</li>
+<li>Flutter</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>メンバー1名</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>生かせる経験・資格</h4>
+<p><strong>＜得意分野・生かせる経験＞</strong></p>
+<ul>
+<li>Pythonを用いたプログラミング・データ解析</li>
+<li>MUI、Reactを用いたWebアプリ開発</li>
+<li>C#、AutoLISPを用いたAutoCAD互換の機能開発</li>
+<li>未経験の言語に適応可能</li>
+<li>機械学習、AIに関する基本的な知識</li>
+<li>SQLに関する基本的な知識</li>
+</ul>
+<hr />
+<p><strong>＜保有資格＞</strong></p>
+<ul>
+<li>ディープラーニングG検定2021#3</li>
+<li>Coursera：Machine Learning Course修了</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>自己PR</h4>
+<ul>
+<li><strong>開発実績</strong></li>
+</ul>
+<p>CADの開発期間中、さまざまな機能開発をしましたが、その中でも実行に10分以上かかっていた機能を検証し、実行時間を数秒に縮めることができました。その他SQLの改善などにより、パフォーマンス向上を行いました。</p>
+<ul>
+<li><strong>適応性</strong></li>
+</ul>
+<p>この3年間で開発環境が様々に変わりましたが、それらの環境の変動にも即座に適応し、パフォーマンスを出すことができました。また、モックアップサイト作成時には、選定したTypeScriptおよびReact、Material-UIも初めて触る状態でしたが、開発しながら学習し、モックアップサイトを制作できました。</p>
+<ul>
+<li><strong>貪欲に学習する</strong></li>
+</ul>
+<p>もともとAI等の最新技術に携わりたかったため、2021年にG検定を取得するなどしていました。現在では、CourseraのMachine Learningコースの受講であったり、ディープラーニングE資格の合格を目指すなど、実装に関する知識を習得することに取り組んでいます。その他、ConnpassやTECH PLAYなどで行われるイベントに積極的に参加し、知見を深めています。また、paizaなどのプログラミングスキルチェックも行い、アルゴリズム力の強化にも取り組んでいます。</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="i-5">【見本３】システムエンジニア経験者の職務経歴書</span></h2>
+<h3>元リクルートCAからのアドバイス</h3>
+<div style="background: #F0F8FF; border: 4px double #6091D3; box-shadow: 0 0 0 10px #F0F8FF; padding: 10px;">
+<p>「自分の担当フェーズを具体的に明記していること」「プロジェクトの規模感が記載されていること」が見本3の職務経歴書の特に良い点です。<strong><span style="color: #ff0000;">プロジェクトの中で、どういったポジションで活躍をしていたのかイメージがしやすいです。</span></strong>スキル感についてOS・環境などの項目ごとに書かれているのもわかりやすいでしょう。</p>
+<p>また自分の得意分野やキャリアビジョンについても記載しており、採用後の活躍ポジションを考えやすい点も良い点といえるでしょう。さらに「成果」について言及をしておくとより伝わりやすい職務経歴書になるでしょう。</p>
+</div>
+<h3><strong>情報通信業/技術職から情報通信業/技術職へ転職</strong></h3>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>職務要約</h4>
+<p>独立系Slerにてシステム基盤構築・運用保守プロジェクトを中心に実務経験を2年重ねた後、金融ITを専門とする会社へ籍を移し金融パッケージ商品の開発プロジェクトに1年携わりました。また、運用保守プロジェクトでは、1年ほど管理人数1人ですがチームリーダーを担い、進捗管理や品質チェックおよび定例の場での進捗報告や障害報告など行っておりました。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>開発履歴</h4>
+<p>株式会社 〇〇　〔在籍期間：20XX年X月～20XX年X月（X年間）〕<br />
+資本金：〇〇万円、売上高：〇〇万円、従業員数：〇〇名</p>
+<hr />
+<p><strong>20XX年X月～20XX年X月（Xヶ月）</strong></p>
+<p><strong>＜業務内容＞</strong></p>
+<p>プロジェクト名：某大手不動産サイトのサーバー設計・構築プロジェクト</p>
+<p>クライアント：某大手不動産企業</p>
+<p>概要：不動産社員が使用するタブレット端末のシステムのサーバー設計・構築</p>
+<p>担当フェーズ</p>
+<ul>
+<li>詳細設計：OS・ミドルウェアのパラメータシート作成</li>
+<li>構築：OS・ミドルウェアの構築</li>
+<li>テスト：単体、結合、総合</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows Server 2012</li>
+<li>AWS</li>
+<li>SVF</li>
+<li>VMware</li>
+<li>Oracle 10g</li>
+<li>Arcserve Backup</li>
+<li>McAfee</li>
+<li>Windows バッチ</li>
+</ul>
+<p><strong>＜開発規模＞</strong></p>
+<p>要員数</p>
+<ul>
+<li>PJ全体……20名</li>
+<li>インフラチーム……10名（自分）</li>
+<li>アプリチーム……10名</li>
+</ul>
+<p>自分の担当分</p>
+<ul>
+<li>インフラの設計・構築</li>
+</ul>
+<hr />
+<p><b><strong>20XX年X月～20XX年X月（Xヶ月）</strong></b></p>
+<p><strong>＜業務内容＞</strong></p>
+<p>プロジェクト名：某大手シンクタンク企業のクラウドファイルサーバーの運用・保守</p>
+<p>クライアント：某大手シンクタンク企業</p>
+<p>概要：社内・社外のクラウドファイル管理システムのサーバー運用・保守。1MMのチームリーダーとして、進捗管理、品質管理、定例会での報告や調整を担当。</p>
+<p>担当フェーズ</p>
+<ul>
+<li>基本設計：ジョブの基本設計</li>
+<li>詳細設計：ジョブの詳細設計</li>
+<li>テスト：ジョブの単体・結合テストや本番作業のテスト</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Windows Server 2008 R2</li>
+<li>Windows Server 2012</li>
+<li>Linux（RedHat）</li>
+<li>NAS（NetApp）</li>
+<li>Oracle 10g</li>
+<li>VMware</li>
+<li>Active Directory</li>
+<li>千手ブラウザ</li>
+<li>VCS</li>
+<li>Symantec Endpoint Protection</li>
+<li>Postfix</li>
+<li>PowerShell</li>
+<li>シェルスクリプト</li>
+<li>バッチ</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>要員数</p>
+<ul>
+<li>PJ全体……20名</li>
+<li>サーバ基盤チーム……5名（自分）</li>
+<li>ネットワークチーム……5名</li>
+<li>ミドルチーム……10名</li>
+</ul>
+<p>自分の担当分</p>
+<ul>
+<li>サーバ基盤チームリーダー（管理人数1名）</li>
+<li>サーバーの運用・保守</li>
+</ul>
+<hr />
+<p>株式会社 〇〇　〔在籍期間：20XX年X月～20XX年X月（X年間）〕<br />
+資本金：〇〇万円、売上高：〇〇万円、従業員数：〇〇名</p>
+<hr />
+<p><b><strong>20XX年X月～20XX年X月</strong>（Xヶ月）</b></p>
+<p><strong>＜業務内容＞</strong></p>
+<p>プロジェクト名：某大手銀行向けシステム開発プロジェクト</p>
+<p>クライアント：某大手銀行</p>
+<p>概要：銀行のフロント（トレーダー）・ミドル・バック担当が使用する金融パッケージ商品MX.3の開発・テスト・移行。バック（金融商品の承認やバック担当が業務で使用する帳票データの作成など）機能のテストおよび開発や問い合わせ対応と移行テスト工程を担当。</p>
+<p>担当フェーズ</p>
+<ul>
+<li>詳細設計</li>
+<li>開発：テスト時のバグ改修など</li>
+<li>移行：手順、移行ツール、テスト作業</li>
+<li>テスト：単体・結合</li>
+</ul>
+<p><strong>＜開発環境等＞</strong></p>
+<ul>
+<li>Linux（RedHat）</li>
+<li>Windows Server 2012</li>
+<li>MX.3</li>
+<li>Tortoise SVN</li>
+<li>Oracle 10g</li>
+<li>Windows バッチ</li>
+<li>シェルスクリプト</li>
+<li>VBA</li>
+</ul>
+<p><strong>＜役割等＞</strong></p>
+<p>要員数</p>
+<ul>
+<li>PJ全体……数百名以上</li>
+<li>Mx.3バック機能開発テストチーム……20名</li>
+<li>他システムやフロント・ミドル機能開発チーム……数百名以上</li>
+</ul>
+<p>自分の担当</p>
+<ul>
+<li>バック機能のテストや問い合わせ対応</li>
+<li>移行テスト</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>技術スキル/得意分野</h4>
+<p><strong>＜技術スキル＞</strong></p>
+<p>OS：Windows Server 2008 R2、Windows Server 2012、Linux（RedHat）</p>
+<p>言語：Java・JavaScript・JSP・Servlet・HTML・CSS（研修で3ヶ月）、C（大学時代専攻）、Python（自宅で勉強）、PowerShell、シェルスクリプト、Windowsバッチ、VBA、SQL</p>
+<p>DB：Oracle 10g</p>
+<p>監視・ジョブ管理ツール：千手ブラウザ</p>
+<p>仮想化関連：VMware、AWS</p>
+<p>その他：Symantec Endpoint Protection、NAS（NetApp）、Docker（自宅で使用）</p>
+<hr />
+<p><strong>＜得意分野＞</strong></p>
+<ul>
+<li>業務上で効率化できる箇所の改善案の提案～実現</li>
+<li>わかりやすいドキュメントの作成力（障害報告資料や説明資料）</li>
+<li>小規模ではあるが、チームリーダー経験があり、顧客との調整やチームの進捗や状況の把握能力</li>
+<li>障害調査の対応力や関係部署との調整力</li>
+<li>金融関連の業務知識や通貨OPの知識</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>自己PR</h4>
+<p><strong>新しい知識や技術のキャッチアップ力</strong></p>
+<p>初めてサーバーエンジニアとして入った案件や、未経験の金融の開発案件に入った際に右も左もわからない状態でしたが、日々の業務でわからない単語を調べてまとめたり、必要な資格をピックアップし家や通勤時間でも勉強して取得したり、未知の分野の案件でも自主的に必要な技術知識を勉強してより早く適応できるように努力してきました。</p>
+<p><strong>自己研鑽スキル</strong></p>
+<p>新しい技術や情報に興味があり、自宅でPythonやGoogleから出たTensorFlowなどのライブラリを使った開発などを行っております。また、新しい技術や情報を追うため、Qiitaという情報収集ツールで興味のある分野の情報を収集したりしています。資格も取得していきたいと考えており、今後は、Python3エンジニア認定基礎試験やORACLE MASTERのブロンズを勉強し取得したいと考えております。インフラ関連の書籍（OSやDB）を読んだり、実際に家でAWSでのサーバーの構築や低コストのRAID構成のバックアップシステムを設計し実装しました。</p>
+<p><strong>相手目線に立ったコミュニケーション力</strong></p>
+<p>障害が発生し関係部署と調整や会話をする際に、相手方のシステムや知識に合わせて言葉を使うように心掛けており、他のシステムの目線で会話するために、時間が空いた際に他システムの関係資料を読むことで理解し会話がしやすくなるように意識していました。また、チームリーダーとしてタスクの割り振りを行う際も、メンバーの得意分野や興味・志向を日々の会話や状況から把握しなるべく考慮してタスクを振るように意識していました。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table bgcolor="#f5f5f5">
+<tbody>
+<tr>
+<td>
+<h4>キャリアビジョン</h4>
+<p>まずは、開発経験を積んで技術力を高めていき、徐々に下流工程だけでなく上流工程に携わり、管理スキルもあわせて磨いていきたい。手を動かして開発を行うことも好きなので、技術力と管理スキルの両方を身につけてプレイングマネージャーやサブリーダー的な役割で、現場でも手を動かしつつ管理をしていけるようなエンジニアになりたい。</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="i-6">エンジニアの職務経歴書のテンプレートをダウンロード</span></h2>
+<h3>【編年体式】職務経歴書テンプレート</h3>
+<p>職務経歴が過去から時系列になっている、編年体の職務経歴書をここからダウンロードできます。おもに、経歴のまだ浅い若年層の方に適しているバージョンです。<br />
+<div class="c-cta-btn"><a href="/resume/wp-content/uploads/2024/02/engineer-2.docx">【編年体式】職務経歴書のテンプレートをダウンロードする</a></div></p>
+<h3>【逆編年体式】職務経歴書テンプレート</h3>
+<p>職務経歴が直近から時系列になっている、逆編年体の職務経歴書をここからダウンロードできます。おもに、直近の経験を生かして転職したい方やベテラン層の方に適しているバージョンです。<br />
+<div class="c-cta-btn"><a href="/resume/wp-content/uploads/2024/02/engineer_-2.docx">【逆編年体式】職務経歴書のテンプレートをダウンロードする</a></div></p>
+<h2><span id="Web">スマホで職務経歴書を作るなら【職務経歴書Web作成ツール】が便利</span></h2>
+<p><img decoding="async" class="aligncenter size-full wp-image-2536 lazyload"  alt="" width="654" height="437" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/resume/wp-content/uploads/2024/04/slide02_img_sp.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2024/04/slide02_img_sp.png 654w, https://www.hop-job.com/service/wp-content/uploads/2024/04/slide02_img_sp-300x200.png 300w" data-sizes="auto" /><noscript><img decoding="async" class="aligncenter size-full wp-image-2536" src="/resume/wp-content/uploads/2024/04/slide02_img_sp.png" alt="" width="654" height="437" srcset="https://www.hop-job.com/service/wp-content/uploads/2024/04/slide02_img_sp.png 654w, https://www.hop-job.com/service/wp-content/uploads/2024/04/slide02_img_sp-300x200.png 300w" sizes="(max-width: 654px) 100vw, 654px" data-eio="l" /></noscript></p>
+<p>パソコンやスマホで職務経歴書を作る場合は、<span style="color: #000000;">簡単に職務経歴書が作成できる職務経歴書Web作成ツールがおすすめ。</span></p>
+<p>株式会社キュービックが開発した<a href="https://www.hop-job.com/resume/">ミライトーチ</a>は、<strong><span style="color: #ff0000;"><span class="text-red">情報を入力していくだけで、履歴書だけではなく職務経歴書も作成</span>することができます。</span></strong></p>
+<p>煩わしい職歴の表作成なども自動で行なってくれるため、とても簡単に職務経歴書の作成ができますよ。</p>
+<p>また完成した職務経歴書はPDFでダウンロードもできるため、メールでの添付はもちろん、コンビニ等で印刷するのも便利です。</p>
+<p class="p1"><div class="c-cta-btn"><a href="https://www.hop-job.com/resume/">スマホで職務経歴書を無料作成する</a></div></p>
+        </div>
+        <div class="c-sns-share">
+            <div class="c-sns-share__title">
+                <span class="material-symbols-outlined">
+                    share
+                </span>このページをシェアする
+            </div>
+            <ul class="c-sns-share__list">
+                <li class="c-sns-share__list__item">
+                    <a class="" href="https://x.com/share?url=https://www.hop-job.com/service/s004/&text=【転職成功者3名の実例付き】ITエンジニアの職務経歴書の書き方と見本＆テンプレート"
+                        target="_blank" rel="noopenner">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Xでシェア" data-src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/x_icon.svg" decoding="async" class="lazyload"><noscript><img src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/x_icon.svg" alt="Xでシェア" data-eio="l"></noscript>
+                    </a>
+                </li>
+                <li class="c-sns-share__list__item">
+                    <a class="" href="https://www.facebook.com/sharer/sharer.php?u=https://www.hop-job.com/service/s004/"
+                        target="_blank" rel="noopenner">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Facebookでシェア" data-src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/facebook_icon.svg" decoding="async" class="lazyload"><noscript><img src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/facebook_icon.svg" alt="Facebookでシェア" data-eio="l"></noscript>
+                    </a>
+                </li>
+                <li class="c-sns-share__list__item">
+                    <a class="" href="https://social-plugins.line.me/lineit/share?url=https://www.hop-job.com/service/s004/"
+                        target="_blank" rel="nofollow noopener">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="LINEでシェア" data-src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/line_icon.svg" decoding="async" class="lazyload"><noscript><img src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/line_icon.svg" alt="LINEでシェア" data-eio="l"></noscript>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </article>
+                <div class="l-container archive">
+        <h2 class="c-common-headline blue">
+            関連記事一覧
+        </h2>
+        <ul class="l-grid l-grid--col3">
+                        <li class="p-card">
+                <a href="https://www.hop-job.com/service/manufacturing-industry/">
+                    <!-- Post Thumbnail/Featured Image -->
+                    <div class="p-card__image">
+                        <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="製造業の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2025/01/manufacturing-industry000-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-768x576.png 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2025/01/manufacturing-industry000-1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="製造業の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/manufacturing-industry000-1-768x576.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>                    </div>
+                    <!-- Post Meta -->
+                    <div class="p-card__content">
+                        <div class="p-card__meta">
+                            <span class="p-card__meta__category">職務経歴書</span>
+                            <span class="p-card__meta__date"><span class="material-symbols-outlined">
+                                    schedule
+                                </span>2025.01.31</span>
+                        </div>
+                        <!-- Post Title -->
+                        <h3 class="p-card__title">【転職成功者4名の実例付き】製造業（製造オペレーター・生産管理・品質管理）の職務経歴書の書き方と見本＆テンプレート</h3>
+                    </div>
+                </a>
+            </li>
+                        <li class="p-card">
+                <a href="https://www.hop-job.com/service/cook/">
+                    <!-- Post Thumbnail/Featured Image -->
+                    <div class="p-card__image">
+                        <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="調理師の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2025/01/cook000-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-768x576.png 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2025/01/cook000-1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="調理師の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/cook000-1-768x576.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>                    </div>
+                    <!-- Post Meta -->
+                    <div class="p-card__content">
+                        <div class="p-card__meta">
+                            <span class="p-card__meta__category">職務経歴書</span>
+                            <span class="p-card__meta__date"><span class="material-symbols-outlined">
+                                    schedule
+                                </span>2025.01.31</span>
+                        </div>
+                        <!-- Post Title -->
+                        <h3 class="p-card__title">【転職成功者4名の実例付き】調理師の職務経歴書の書き方と見本＆テンプレート</h3>
+                    </div>
+                </a>
+            </li>
+                        <li class="p-card">
+                <a href="https://www.hop-job.com/service/mechanic/">
+                    <!-- Post Thumbnail/Featured Image -->
+                    <div class="p-card__image">
+                        <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="" decoding="async" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2025/01/mechanic000-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-768x576.png 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2025/01/mechanic000-1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/mechanic000-1-768x576.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>                    </div>
+                    <!-- Post Meta -->
+                    <div class="p-card__content">
+                        <div class="p-card__meta">
+                            <span class="p-card__meta__category">職務経歴書</span>
+                            <span class="p-card__meta__date"><span class="material-symbols-outlined">
+                                    schedule
+                                </span>2025.01.31</span>
+                        </div>
+                        <!-- Post Title -->
+                        <h3 class="p-card__title">【転職成功者4名の実例付き】整備士（自動車整備士、航空整備士、建設機械整備士、船舶整備士）の職務経歴書の書き方</h3>
+                    </div>
+                </a>
+            </li>
+                        <li class="p-card">
+                <a href="https://www.hop-job.com/service/construction-management/">
+                    <!-- Post Thumbnail/Featured Image -->
+                    <div class="p-card__image">
+                        <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="施工管理の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2025/01/construction-management000-1.png" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-768x576.png 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2025/01/construction-management000-1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="施工管理の職務経歴書の書き方とテンプレート&amp;見本" decoding="async" srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1.png 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-300x225.png 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-1024x768.png 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/construction-management000-1-768x576.png 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>                    </div>
+                    <!-- Post Meta -->
+                    <div class="p-card__content">
+                        <div class="p-card__meta">
+                            <span class="p-card__meta__category">職務経歴書</span>
+                            <span class="p-card__meta__date"><span class="material-symbols-outlined">
+                                    schedule
+                                </span>2025.01.31</span>
+                        </div>
+                        <!-- Post Title -->
+                        <h3 class="p-card__title">【転職成功者4名の実例付き】施工管理の職務経歴書の書き方と見本＆テンプレート</h3>
+                    </div>
+                </a>
+            </li>
+                        <li class="p-card">
+                <a href="https://www.hop-job.com/service/se/">
+                    <!-- Post Thumbnail/Featured Image -->
+                    <div class="p-card__image">
+                        <img width="1200" height="900"  class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" alt="" decoding="async" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-src="/service/wp-content/uploads/2025/01/se000.jpg" data-srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/se000.jpg 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-300x225.jpg 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-1024x768.jpg 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-768x576.jpg 768w" data-sizes="auto" /><noscript><img width="1200" height="900" src="/service/wp-content/uploads/2025/01/se000.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" decoding="async" srcset="https://www.hop-job.com/service/wp-content/uploads/2025/01/se000.jpg 1200w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-300x225.jpg 300w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-1024x768.jpg 1024w, https://www.hop-job.com/service/wp-content/uploads/2025/01/se000-768x576.jpg 768w" sizes="(max-width: 1200px) 100vw, 1200px" data-eio="l" /></noscript>                    </div>
+                    <!-- Post Meta -->
+                    <div class="p-card__content">
+                        <div class="p-card__meta">
+                            <span class="p-card__meta__category">職務経歴書</span>
+                            <span class="p-card__meta__date"><span class="material-symbols-outlined">
+                                    schedule
+                                </span>2025.01.31</span>
+                        </div>
+                        <!-- Post Title -->
+                        <h3 class="p-card__title">【転職成功者4名の実例付き】SE（システムエンジニア）の職務経歴書の書き方と見本＆テンプレート</h3>
+                    </div>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    
+</div>
+
+<div class="l-footer">
+    <div class="l-footer__inner">
+        <div class="c-footer-logo">
+            <a href="https://www.hop-job.com/"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="ミライトーチのロゴ" data-src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/footer_logo.svg" decoding="async" class="lazyload"><noscript><img src="https://www.hop-job.com/service/wp-content/themes/mirai-torch/img/footer_logo.svg" alt="ミライトーチのロゴ" data-eio="l"></noscript></a>
+        </div>
+        <ul class="c-footer-list">
+            <li><a href="https://www.hop-job.com/service/how-to-use/">使い方</a></li>
+            <li><a href="https://www.hop-job.com/service/terms/">利用規約</a></li>
+            <li><a href="https://www.hop-job.com/service/agent-terms/">エージェント紹介サービス利用規約</a></li>
+            <li><a href="https://cuebic.co.jp/company/profile/" target="_blank">会社概要</a></li>
+            <li><a href="//cuebic.co.jp/cookie/" target="_blank">外部送信ポリシー</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeG5rI6kleJvoIJio5Ws3XWSqk1Zj3srosyYdCQDMwgV-sbRQ/viewform" target="_blank">お問い合わせ</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Floating Banner -->
+
+<div id="bl_floatingBanner" class="bl_floatingBanner">
+  <a href="https://www.hop-job.com/resume/" class="bl_floatingBanner_img" target="_blank">
+    <picture>
+      <source  media="(max-width: 480px)" data-srcset="/service/wp-content/uploads/2025/03/bnr_floating_resume_pc002.png">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="履歴書と職務経歴書を自動で&サクッと作成！" data-src="/service/wp-content/uploads/2025/03/bnr_floating_resume_pc002.png" decoding="async" class="lazyload"><noscript><img src="/service/wp-content/uploads/2025/03/bnr_floating_resume_pc002.png" alt="履歴書と職務経歴書を自動で&サクッと作成！" data-eio="l"></noscript>
+    </picture>
+  </a>
+  <div class="bl_floatingBanner_close" id="bl_floatingBanner_close">
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<script type="text/javascript" id="eio-lazy-load-js-before">
+/* <![CDATA[ */
+var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":0,"threshold":0};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.hop-job.com/service/wp-content/plugins/ewww-image-optimizer/includes/lazysizes.min.js" id="eio-lazy-load-js"></script>
+<script type="text/javascript" id="toc-front-js-extra">
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"\u8868\u793a","visibility_hide":"\u975e\u8868\u793a","visibility_hide_by_default":"1","width":"Auto"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.hop-job.com/service/wp-content/plugins/table-of-contents-plus/front.min.js" id="toc-front-js"></script>
+<script>
+document.querySelector('.c-header__nav__button').addEventListener('click', function() {
+    toggleMenu();
+});
+
+document.querySelector('.c-nav-bg').addEventListener('click', function() {
+    toggleMenu();
+});
+
+const navLinks = document.querySelectorAll('.c-header__nav a');
+for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', function() {
+        toggleMenu();
+    });
+}
+
+function toggleMenu() {
+    document.querySelector('.c-header__nav__button').classList.toggle('is-open');
+    document.querySelector('.c-header__nav').classList.toggle('is-open');
+    document.querySelector('.c-nav-bg').classList.toggle('is-open');
+    const buttonText = document.querySelector('.c-header__nav__button__text');
+    if (buttonText.innerHTML === 'メニュー') {
+        buttonText.innerHTML = '閉じる';
+    } else {
+        buttonText.innerHTML = 'メニュー';
+    }
+}
+
+window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    const headerHeight = document.querySelector('.l-header').offsetHeight;
+
+    if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - headerHeight,
+                behavior: 'smooth'
+            });
+        }
+    }
+});
+
+document.addEventListener('click', event => {
+    let targetElement = event.target;
+    while (targetElement.nodeName.toLowerCase() !== 'a' && targetElement.nodeName.toLowerCase() !== 'body') {
+        targetElement = targetElement.parentElement;
+    }
+    if (!targetElement.hash) return;
+
+    event.preventDefault();
+
+    const headerHeight = document.querySelector('.l-header').offsetHeight;
+    const element = document.querySelector(targetElement.hash);
+
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - headerHeight,
+            behavior: 'smooth'
+        });
+    } else {
+        window.location.href = targetElement.href;
+    }
+});
+</script>
+
+<script>
+// Floating Banner
+const sessionBannerKey = "hideFloatingBanner";
+
+window.onload = () => {
+  // sessionStorageを参照してバナーを表示
+  if (sessionStorage.getItem(sessionBannerKey) !== "1") {
+    document.getElementById("bl_floatingBanner").classList.add("js-show");
+  }
+
+  // ×をクリックするとフローティングバナー（追従バナー）が閉じる
+  document.getElementById("bl_floatingBanner_close").onclick = function () {
+    this.parentNode.classList.remove("js-show");
+    sessionStorage.setItem("hideFloatingBanner", "1");
+    console.log("OK");
+  };
+};
+</script>
+
+
+</body>
+
+</html>

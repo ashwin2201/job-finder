@@ -23,7 +23,3 @@ def match_jobs_tfidf(resume_text: str, job_descriptions: list[str]) -> list[int]
     
     # Return sorted job indices
     return np.argsort(-similarities[0])
-
-
-jobs = match_jobs_tfidf( "Junior software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.", ["Software Engineer with 5+ years of experience in developing scalable web applications.", "Junior Developer with a passion for learning and growth.", "Project Manager with a track record of successful project delivery."])
-print("Matched job indices:", jobs)

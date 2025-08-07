@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
-from models.resume import ResumeInfo
-from services.scraper import scrape_jobs
-from services.job_matcher import match_jobs_tfidf
+from backend.services.resume_generator.pipeline import build_pipeline
+from models.resume import ResumeInfo, ResumeInput
+from backend.services.jobs_matcher.scraper import scrape_jobs
+from backend.services.jobs_matcher.job_matcher import match_jobs_tfidf
 
 app = FastAPI()
 
@@ -50,3 +50,12 @@ async def submit_resume(resume_info: ResumeInfo):
     except Exception as e:
         print(f"Error processing resume: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/generate")
+async def generate(resume_input: ResumeInput):
+    # JD summary via simple truncation or separate LLM call
+    pipeline = await build_pipeline()
+    
+    resume_input["jd_summary"] = resume_input["jd_text"][:800]
+    final_text, flagged = await pipeline.ainvoke(resume_input)
+    return {"resume_jp": final_text, "flagged_casual": flagged}

@@ -1,14 +1,24 @@
+# db.py
+import os, psycopg_pool
 from langchain_postgres.vectorstores import PGVector
-from langchain_huggingface import HuggingFaceEmbeddings
-import os, asyncio, psycopg_pool
 
-POOL = psycopg_pool.AsyncConnectionPool(conninfo=os.getenv("PG_CONN")) # async functionality
+USE_HF = os.getenv("USE_HF", "false").lower() == "true"
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+if USE_HF:
+    from langchain_huggingface import HuggingFaceEmbeddings
+    embeddings = HuggingFaceEmbeddings(
+        model_name="intfloat/multilingual-e5-large",
+        model_kwargs={"device": "cuda"}
+    )
+# else:
+  #  from langchain_openai import OpenAIEmbeddings
+  #  embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-vector_store = PGVector(
-    embeddings=embeddings,
-    collection_name="my_docs",
-    connection="postgresql+psycopg://...",
-)
+POOL = psycopg_pool.AsyncConnectionPool(conninfo=os.getenv("PG_CONN"))
 
+async def vectorstore(collection="jp_snippets"):
+    return PGVector(
+        connection_pool=POOL,
+        collection_name=collection,
+        embedding=embeddings,
+    )
