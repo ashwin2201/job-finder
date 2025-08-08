@@ -2,8 +2,8 @@ from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import re
-from backend.services.resume_generator.model import llm
-from backend.services.resume_generator.docs_db import get_vectorstore
+from services.resume_generator.model import llm
+from services.resume_generator.docs_db import get_vectorstore
 
 
 SYSTEM_PROMPT = (

@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from backend.services.resume_generator.pipeline import build_pipeline
+from services.resume_generator.pipeline import build_pipeline
 from models.resume import ResumeInfo, ResumeInput
-from backend.services.jobs_matcher.scraper import scrape_jobs
-from backend.services.jobs_matcher.job_matcher import match_jobs_tfidf
+from services.jobs_matcher.scraper import scrape_jobs
+from services.jobs_matcher.job_matcher import match_jobs_tfidf
 
 app = FastAPI()
 
@@ -29,7 +29,7 @@ async def get_job_by_id(id: int):
 
 @app.post("/api/submit-resume")
 async def submit_resume(resume_info: ResumeInfo):
-    global jobs_db # just a quick fix 
+    global jobs_db # TODO: refactor to avoid global state
 
     try:
         print(f"Received resume data: {resume_info}")
