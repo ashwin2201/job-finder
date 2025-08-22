@@ -3,7 +3,7 @@ from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import re
 from services.resume_generator.model import llm
-from services.resume_generator.docs_db import get_vectorstore
+from services.resume_generator.docs_db import vectorstore as get_vectorstore
 
 
 SYSTEM_PROMPT = (
@@ -36,7 +36,7 @@ def casual_flag(t): return bool(re.search(r"だ。|俺|僕|と思う", t))
 
 async def build_pipeline():
     vectorstore = await get_vectorstore()
-    retriever   = vectorstore.as_retriever(k=5)
+    retriever = vectorstore.as_retriever(k=5)
 
     rag_chain = (
         {

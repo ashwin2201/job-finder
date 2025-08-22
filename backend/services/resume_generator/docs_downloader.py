@@ -42,7 +42,7 @@ async def fetch(session, url, dest):
         resp.raise_for_status()
         data = await resp.read()
     pathlib.Path(dest).write_bytes(data)
-    print(f"✓ {dest}")
+    print(f"{dest}")
 
 async def main():
     async with aiohttp.ClientSession(headers={"User-Agent": "resume-crawler"}) as s:

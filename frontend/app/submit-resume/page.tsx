@@ -19,8 +19,13 @@ import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
     resume: z.string().min(5, "Resume is required"),
-    fullName: z.string().min(2, "Full name must be at least 2 characters"),
+    firstName: z.string().min(2, "First name must be at least 2 characters"),
+    lastName: z.string().min(2, "Last name must be at least 2 characters"),
+    dateOfBirth: z.string().optional(),
+    address: z.string().optional(),
     email: z.string().email("Please enter a valid email"),
+    jobDescription: z.string().min(5, "Job description is required"),
+    phone: z.string().min(8, "Phone number must be at least 8 digits"),
 })
 
 const SubmitResume = () => {
@@ -30,36 +35,38 @@ const SubmitResume = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             resume: "",
-            fullName: "",
+            firstName: "",
+            lastName: "",
+            dateOfBirth: "",
+            address: "",
             email: "",
+            jobDescription: "",
+            phone: "",
         },
     });
 
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const showJobListings = async (values: z.infer<typeof formSchema>) => {
         console.log("Form values:", values);
-        
-        // Handle file upload
-        const formData = new FormData();
-        formData.append("resume", values.resume);
-        formData.append("fullName", values.fullName);
-        formData.append("email", values.email);
-        
-        console.log("Form data ready to send:", formData);
-        
+
+        const formData = {
+            resumeTxt: values.resume,
+            jobDescription: values.jobDescription,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            dateOfBirth: values.dateOfBirth,
+            address: values.address,
+            phone: values.phone,
+            email: values.email,
+        }
+
         // generate ranked job data 
         try {
-            const requestBody = {
-                text: values.resume,
-                fullName: values.fullName,
-                email: values.email,
-            }
-
             const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/submit-resume', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(requestBody),
+                body: JSON.stringify(formData),
             })
 
             if (res.ok) {
@@ -67,6 +74,47 @@ const SubmitResume = () => {
                 router.push('/job-feed');
             } else {
                 const errorText = await res.text();
+
+                console.error("Failed to submit resume:", errorText);
+                console.error("Response status:", res.status);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+
+    };
+
+    const generateResume = async (values: z.infer<typeof formSchema>) => {
+        console.log("Form values:", values);
+
+        const payload = {
+            resume_text: values.resume,
+            job_description: values.jobDescription,
+            // if you do not have kana collect them later
+            first_name_kana: null,
+            last_name_kana: null,
+            dob: values.dateOfBirth || null,
+            address_en: values.address || null,
+            phone: values.phone,
+            email: values.email,
+        };
+
+        // generate ranked job data 
+        try {
+            const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/generate-resume', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            })
+
+            if (res.ok) {
+                console.log("Resume submitted successfully:");
+                router.push('/generated-resume');
+            } else {
+                const errorText = await res.text();
+
                 console.error("Failed to submit resume:", errorText);
                 console.error("Response status:", res.status);
             }
@@ -83,18 +131,79 @@ const SubmitResume = () => {
                 Please fill out the form below to submit your resume. We will review it and get back to you shortly.
             </p>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                        control={form.control}
+                        name="firstName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>First Name</FormLabel>
+                                <FormControl>
+                                    <Input 
+                                        placeholder="John" 
+                                        className="w-full px-4" 
+                                        {...field} 
+                                    />
+                                </FormControl>
+                                <FormDescription>
+                                    Please enter your first name.
+                                </FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name="lastName"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>Last Name</FormLabel>
+                            <FormControl>
+                                <Input 
+                                    placeholder="Doe" 
+                                    className="w-full px-4" 
+                                    {...field} 
+                                />
+                            </FormControl>
+                            <FormDescription>
+                                Please enter your last name.
+                            </FormDescription>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+
                 <FormField
                     control={form.control}
-                    name="fullName"
+                    name="dateOfBirth"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>Date of Birth</FormLabel>
                         <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input placeholder="22 Jan 2002" {...field} />
                         </FormControl>
                         <FormDescription>
-                            Please enter your full name.
+                            Please enter your date of birth.
+                        </FormDescription>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="address"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Address</FormLabel>
+                        <FormControl>
+                            <Input placeholder="Shinishikawa 3-20-3" {...field} />
+                        </FormControl>
+                        <FormDescription>
+                            Please enter your address.
                         </FormDescription>
                         <FormMessage />
                         </FormItem>
@@ -112,6 +221,40 @@ const SubmitResume = () => {
                         </FormControl>
                         <FormDescription>
                             Please enter your email.
+                        </FormDescription>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Phone</FormLabel>
+                        <FormControl>
+                            <Input placeholder="+81 90-1234-5678" {...field} />
+                        </FormControl>
+                        <FormDescription>
+                            Please enter your phone number.
+                        </FormDescription>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
+                <FormField
+                    control={form.control}
+                    name="jobDescription"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Job Description</FormLabel>
+                        <FormControl>
+                            <Input placeholder="Describe the job..." {...field} />
+                        </FormControl>
+                        <FormDescription>
+                            Please enter the target job description.
                         </FormDescription>
                         <FormMessage />
                         </FormItem>
@@ -139,7 +282,9 @@ const SubmitResume = () => {
                     )}
                 />
 
-                <Button className="bg-primary cursor" type="submit">Submit</Button>
+                <Button type="button" onClick={form.handleSubmit(showJobListings)}>Show job listings</Button>
+                <Button type="button" onClick={form.handleSubmit(generateResume)}>Generate 履歴書</Button>
+
                 </form>
             </Form>
 

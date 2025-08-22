@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from services.resume_generator.pipeline import build_pipeline
-from models.resume import ResumeInfo, ResumeInput
+from services.resume_generator.rag_pipeline import build_pipeline
+from models.resume import ResumeInput
 from services.jobs_matcher.scraper import scrape_jobs
 from services.jobs_matcher.job_matcher import match_jobs_tfidf
 
@@ -28,30 +28,30 @@ async def get_job_by_id(id: int):
     return jobs_db[id - 1]
 
 @app.post("/api/submit-resume")
-async def submit_resume(resume_info: ResumeInfo):
+async def submit_resume(resume_input: ResumeInput):
     global jobs_db # TODO: refactor to avoid global state
 
     try:
-        print(f"Received resume data: {resume_info}")
-        print(f"Resume text: {resume_info.text[:100]}...")
+        print(f"Received resume data: {resume_input}")
+        print(f"Resume text: {resume_input.text[:100]}...")
         
-        jobs = match_jobs_tfidf(resume_info.text, [job['description'] for job in jobs_db])
+        jobs = match_jobs_tfidf(resume_input.text, [job['description'] for job in jobs_db])
         # rank jobs based on the match
         matched_jobs = [jobs_db[i] for i in jobs]
         jobs_db = matched_jobs
         
         return {
             "message": "Resume submitted successfully", 
-            "resume": resume_info.text,
-            "fullName": resume_info.fullName,
-            "email": resume_info.email,
+            "resume": resume_input.text,
+            "fullName": resume_input.fullName,
+            "email": resume_input.email,
             "matched_jobs": matched_jobs
         }
     except Exception as e:
         print(f"Error processing resume: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/generate")
+@app.post("/api/generate-resume")
 async def generate(resume_input: ResumeInput):
     # JD summary via simple truncation or separate LLM call
     pipeline = await build_pipeline()
