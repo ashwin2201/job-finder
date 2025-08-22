@@ -282,7 +282,7 @@ const SubmitResume = () => {
                     )}
                 />
 
-                <Button type="button" onClick={form.handleSubmit(showJobListings)}>Show job listings</Button>
+                <Button type="button" onClick={form.handleSubmit(showJobListings)} className="mr-5">Show job listings</Button>
                 <Button type="button" onClick={form.handleSubmit(generateResume)}>Generate 履歴書</Button>
 
                 </form>
