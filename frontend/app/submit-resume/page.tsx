@@ -16,12 +16,17 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useRouter } from 'next/navigation'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { format } from "date-fns"
+import { Calendar } from '@/components/ui/calendar'
+import { CalendarIcon } from "lucide-react"
 
 const formSchema = z.object({
     resume: z.string().min(5, "Resume is required"),
     firstName: z.string().min(2, "First name must be at least 2 characters"),
     lastName: z.string().min(2, "Last name must be at least 2 characters"),
-    dateOfBirth: z.string().optional(),
+    dateOfBirth: z.date().optional(),
     address: z.string().optional(),
     email: z.string().email("Please enter a valid email"),
     jobDescription: z.string().min(5, "Job description is required"),
@@ -37,7 +42,7 @@ const SubmitResume = () => {
             resume: "",
             firstName: "",
             lastName: "",
-            dateOfBirth: "",
+            dateOfBirth: undefined,
             address: "",
             email: "",
             jobDescription: "",
@@ -53,7 +58,7 @@ const SubmitResume = () => {
             jobDescription: values.jobDescription,
             firstName: values.firstName,
             lastName: values.lastName,
-            dateOfBirth: values.dateOfBirth,
+            dateOfBirth: values.dateOfBirth ? format(values.dateOfBirth, "yyyy-MM-dd") : null,
             address: values.address,
             phone: values.phone,
             email: values.email,
@@ -93,7 +98,7 @@ const SubmitResume = () => {
             // if you do not have kana collect them later
             first_name_kana: null,
             last_name_kana: null,
-            dob: values.dateOfBirth || null,
+            dob: values.dateOfBirth ? format(values.dateOfBirth, "yyyy-MM-dd") : null,
             address_en: values.address || null,
             phone: values.phone,
             email: values.email,
@@ -114,7 +119,7 @@ const SubmitResume = () => {
                 router.push('/generated-resume');
             } else {
                 const errorText = await res.text();
-
+                alert("Failed to submit resume");
                 console.error("Failed to submit resume:", errorText);
                 console.error("Response status:", res.status);
             }
@@ -175,18 +180,46 @@ const SubmitResume = () => {
                         )}
                     />
                 </div>
-
+                
                 <FormField
                     control={form.control}
                     name="dateOfBirth"
                     render={({ field }) => (
-                        <FormItem>
-                        <FormLabel>Date of Birth</FormLabel>
-                        <FormControl>
-                            <Input placeholder="22 Jan 2002" {...field} />
-                        </FormControl>
+                        <FormItem className="flex flex-col">
+                        <FormLabel>Date of birth</FormLabel>
+                        <Popover>
+                            <PopoverTrigger asChild>
+                            <FormControl>
+                                <Button
+                                variant={"outline"}
+                                className={cn(
+                                    "w-[240px] pl-3 text-left font-normal",
+                                    !field.value && "text-muted-foreground"
+                                )}
+                                >
+                                {field.value ? (
+                                    format(field.value, "PPP")
+                                ) : (
+                                    <span>Pick a date</span>
+                                )}
+                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                </Button>
+                            </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                                mode="single"
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) =>
+                                date > new Date() || date < new Date("1900-01-01")
+                                }
+                                captionLayout="dropdown"
+                            />
+                            </PopoverContent>
+                        </Popover>
                         <FormDescription>
-                            Please enter your date of birth.
+                            Your date of birth is used to calculate your age.
                         </FormDescription>
                         <FormMessage />
                         </FormItem>

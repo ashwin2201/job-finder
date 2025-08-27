@@ -10,11 +10,9 @@ embeddings = HuggingFaceEmbeddings(
   #  from langchain_openai import OpenAIEmbeddings
   #  embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-POOL = psycopg_pool.AsyncConnectionPool(conninfo=os.getenv("PG_CONN"))
-
 async def vectorstore(collection="jp_snippets"):
     return PGVector(
-        connection_pool=POOL,
+        connection=os.getenv("PG_CONN"),
         collection_name=collection,
-        embedding=embeddings,
+        embeddings=embeddings,
     )
