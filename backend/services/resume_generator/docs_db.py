@@ -10,9 +10,11 @@ embeddings = HuggingFaceEmbeddings(
   #  from langchain_openai import OpenAIEmbeddings
   #  embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
+connection_str = "postgresql://postgres:password@localhost:5432/job_finder"
+
 async def vectorstore(collection="jp_snippets"):
     return PGVector(
-        connection=os.getenv("PG_CONN"),
+        connection=connection_str,
         collection_name=collection,
         embeddings=embeddings,
     )

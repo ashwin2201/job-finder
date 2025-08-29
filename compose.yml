@@ -36,7 +36,7 @@ services:
         condition: service_healthy    
 
   db:
-    image: pgvector/pgvector:pg17
+    image: pgvector/pgvector:0.8.0-pg17-trixie
     restart: always
     environment:
       POSTGRES_USER: postgres
