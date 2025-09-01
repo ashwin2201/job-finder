@@ -1,6 +1,6 @@
 from langchain_huggingface import HuggingFaceEndpoint
 
-model_name = "elyza/Llama-3-ELYZA-JP-8B"
+model_name = "openai/gpt-oss-20b"
 
 # llm: draft & checker passes
 llm = HuggingFaceEndpoint(

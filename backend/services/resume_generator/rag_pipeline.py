@@ -33,6 +33,35 @@ CHECK_TEMPLATE = PromptTemplate.from_template(
 
 def casual_flag(t): return bool(re.search(r"だ。|俺|僕|と思う", t))
 
+def to_dict(obj) -> dict:
+    if hasattr(obj, "model_dump"):
+        return obj.model_dump()
+    if isinstance(obj, dict):
+        return obj
+    # fallback: object __dict__
+    return vars(obj)
+
+def get_job_description(obj) -> str:
+    if hasattr(obj, "job_description"):
+        return getattr(obj, "job_description") or ""
+    if isinstance(obj, dict):
+        return obj.get("job_description", "") or obj.get("jd_summary", "")
+    return ""
+
+def format_candidate(obj) -> str:
+    d = to_dict(obj)
+    # pick relevant fields if present
+    fields = [
+        "first_name_kana", "last_name_kana", "dob",
+        "email", "phone", "address_en", "resume_text"
+    ]
+    lines = []
+    for f in fields:
+        v = d.get(f)
+        if v:
+            lines.append(f"{f}: {v}")
+    return "\n".join(lines) if lines else str(d)
+
 
 async def build_pipeline():
     vectorstore = await get_vectorstore()
@@ -40,9 +69,9 @@ async def build_pipeline():
 
     rag_chain = (
         {
-            "candidate_json": RunnablePassthrough(),
-            "jd_summary":      lambda x: x["jd_summary"],
-            "retrieved":       retriever | (lambda docs: "\n".join(d.page_content for d in docs)),
+            "candidate_json": RunnableLambda(format_candidate),
+            "jd_summary":     RunnableLambda(get_job_description),
+            "retrieved":      RunnableLambda(get_job_description) | retriever | (lambda docs: "\n".join(d.page_content for d in docs)),
         }
         | DRAFT_TEMPLATE
         | llm               # Hugging Face LLM

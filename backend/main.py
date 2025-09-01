@@ -33,7 +33,7 @@ async def submit_resume(resume_input: ResumeInput):
 
     try:
         print(f"Received resume data: {resume_input}")
-        print(f"Resume text: {resume_input.text[:100]}...")
+        print(f"Resume text: {resume_input["resume_text"].text[:100]}...")
         
         jobs = match_jobs_tfidf(resume_input.text, [job['description'] for job in jobs_db])
         # rank jobs based on the match
@@ -56,6 +56,5 @@ async def generate(resume_input: ResumeInput):
     # JD summary via simple truncation or separate LLM call
     pipeline = await build_pipeline()
     
-    resume_input["jd_summary"] = resume_input["jd_text"][:800]
-    final_text, flagged = await pipeline.ainvoke(resume_input)
+    final_text, flagged = await pipeline.invoke(resume_input)
     return {"resume_jp": final_text, "flagged_casual": flagged}
