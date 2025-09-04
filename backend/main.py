@@ -8,6 +8,7 @@ from services.jobs_matcher.job_matcher import match_jobs_tfidf
 app = FastAPI()
 
 jobs_db = scrape_jobs()
+resumes_db = [] # temp local storage
 
 # CORS middleware
 app.add_middleware(
@@ -54,7 +55,26 @@ async def submit_resume(resume_input: ResumeInput):
 @app.post("/api/generate-resume")
 async def generate(resume_input: ResumeInput):
     # JD summary via simple truncation or separate LLM call
-    pipeline = await build_pipeline()
-    
-    final_text, flagged = await pipeline.invoke(resume_input)
-    return {"resume_jp": final_text, "flagged_casual": flagged}
+    try:
+        data = resume_input.model_dump()
+        jd_text = data.get("job_description", "")
+        data["jd_summary"] = jd_text[:800]  # simple truncation
+        pipeline = await build_pipeline()
+
+        result = pipeline.invoke(data)
+        if isinstance(result, tuple):
+            final_text, flagged = result
+        else:
+            final_text, flagged = result, False
+
+        resumes_db.append(final_text)
+        return {"resume_jp": final_text, "flagged_casual": flagged }
+    except Exception as e:
+        print(f"Error generating resume: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/generate-resume")
+async def get_resume():
+    if resumes_db:
+        return {"resume_jp": resumes_db[-1]}
+    return {"error": "No resume found"}

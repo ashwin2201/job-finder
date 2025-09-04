@@ -2,8 +2,9 @@ from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import re
-from services.resume_generator.model import llm
+from services.resume_generator.model import chat_model
 from services.resume_generator.docs_db import vectorstore as get_vectorstore
+from pydantic import BaseModel
 
 
 SYSTEM_PROMPT = (
@@ -74,14 +75,14 @@ async def build_pipeline():
             "retrieved":      RunnableLambda(get_job_description) | retriever | (lambda docs: "\n".join(d.page_content for d in docs)),
         }
         | DRAFT_TEMPLATE
-        | llm               # Hugging Face LLM
+        | chat_model               # Hugging Face llm
         | StrOutputParser()
     )
 
     checker_chain = (
         {"draft": rag_chain}
         | CHECK_TEMPLATE
-        | llm
+        | chat_model
         | StrOutputParser()
         | RunnableLambda(lambda txt: (txt, casual_flag(txt)))
     )

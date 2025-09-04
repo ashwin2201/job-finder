@@ -113,6 +113,8 @@ const SubmitResume = () => {
                 },
                 body: JSON.stringify(payload),
             })
+            // show loading state
+            
 
             if (res.ok) {
                 console.log("Resume submitted successfully:");

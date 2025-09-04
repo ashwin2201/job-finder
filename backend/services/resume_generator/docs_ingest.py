@@ -6,6 +6,9 @@ from docs_db import vectorstore
 
 DATA_DIR = pathlib.Path("raw_docs")   # put PDFs/HTML/TXT inside
 SENTENCE_SPLIT = re.compile(r"(?<=。)\s*")
+CHUNK_SIZE = 100
+BATCH_SIZE = 64          # tweak (start small if freezing)
+MAX_DOCS = None          # set int to cap during testing
 
 def load_file(fp: pathlib.Path) -> str:
     if fp.suffix.lower() == ".pdf":
@@ -22,7 +25,6 @@ def chunk(text: str, doc_type: str) -> list[tuple[str, dict]]:
         sent = [s.strip() for s in SENTENCE_SPLIT.split(text) if s.strip()]
         return [(s, {"doc_type": doc_type}) for s in sent]
     # template or keigo lists → ~350 char chunks
-    CHUNK_SIZE = 350
     segs = [text[i : i + CHUNK_SIZE] for i in range(0, len(text), CHUNK_SIZE)]
     return [(seg, {"doc_type": doc_type}) for seg in segs]
 
@@ -40,13 +42,19 @@ async def main():
         else:
             dtype = "bullet"
         raw = normalize(load_file(fp))
+        i = 0
         for chunk_txt, meta in chunk(raw, dtype):
             docs.append(chunk_txt)
+            print(f"Chunk {i} : {chunk_txt}")
             meta["source_file"] = fp.name
             metas.append(meta)
-
+            i += 1
+            if MAX_DOCS and len(docs) >= MAX_DOCS:
+                break
+    print("processed all chunks")
     vs = await vectorstore()
-    await vs.add_texts(texts=docs, metadatas=metas)
+    print("retrieved vector store")
+    vs.add_texts(texts=docs, metadatas=metas)
     print(f"Ingested {len(docs)} chunks.")
 
 if __name__ == "__main__":
