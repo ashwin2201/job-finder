@@ -1,33 +1,43 @@
-"use client"
-
-import React, { useEffect } from 'react'
 import JobApplicationForm from '../../../components/JobApplicationForm';
 import { Job } from "@/types/Job";
 
-const JobApplicationPage = () => {
-    // get job from url
-    const jobId = window.location.pathname.split('/').pop();
-    const [job, setJob] = React.useState<Job | null>(null);
 
-    useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs/${jobId}`, {
-            method: "GET"
-        }).then(response => response.json())
-        .then((data) => {
-            setJob(data);
-        })
-        .catch((err) => {
-            console.error("Error fetching job details:", err);
-            setJob(null);
-        })
-    }, [jobId])
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+
+type JobApplicationPageProps = {
+    params: Promise<{ id: string }>;
+}
+
+
+async function fetchJob(jobId: string): Promise<Job | null> {
+    try {
+        const response = await fetch(`${API_URL}/jobs/${jobId}`, {
+            method: "GET",
+            cache: "no-store",
+        });
+        if (!response.ok) {
+            return null;
+        }
+        return response.json();
+    } catch (error) {
+        console.error("Error fetching job details:", error);
+        return null;
+    }
+}
+
+
+const JobApplicationPage = async ({ params }: JobApplicationPageProps) => {
+    const { id } = await params;
+    const job = await fetchJob(id);
 
     return (
         <div className="flex flex-col justify-center items-center p-4 gap-2 py-8">
-            <h1>Applying for job {job?.title}</h1>
-            <JobApplicationForm/>
+            <h1>Applying for job {job?.title ?? `#${id}`}</h1>
+            <JobApplicationForm />
         </div>
     )
 }
 
-export default JobApplicationPage;
+
+export default JobApplicationPage
