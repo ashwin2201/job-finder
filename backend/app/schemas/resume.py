@@ -1,5 +1,4 @@
 from datetime import date
-from typing import Optional
 
 from pydantic import BaseModel
 
@@ -7,9 +6,9 @@ from pydantic import BaseModel
 class ResumeInput(BaseModel):
     resume_text: str
     job_description: str
-    first_name_kana: Optional[str] = None
-    last_name_kana: Optional[str] = None
-    dob: Optional[date] = None
-    address_en: Optional[str] = None
-    phone: Optional[str] = None
+    first_name_kana: str | None = None
+    last_name_kana: str | None = None
+    dob: date | None = None
+    address_en: str | None = None
+    phone: str | None = None
     email: str

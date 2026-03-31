@@ -13,9 +13,9 @@ type JobFeedDetailPanelProps = {
 const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
   if (!job) {
     return (
-      <aside className={`${jobFeedTheme.panel} flex min-h-[480px] items-center justify-center p-8`}>
+      <aside className={`${jobFeedTheme.panel} flex min-h-[480px] items-center justify-center rounded-[24px] p-8`}>
         <div className="space-y-3 text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff2ef] text-[#ef4444]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
             <Sparkles className="h-6 w-6" />
           </div>
           <h3 className={`text-xl font-semibold ${jobFeedTheme.title}`}>Pick a listing</h3>
@@ -26,10 +26,10 @@ const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
   }
 
   return (
-    <aside className={`${jobFeedTheme.panel} overflow-hidden`}>
-      <div className="border-b border-[#efece5] p-5">
-        <div className="flex items-center gap-4 rounded-[20px] border border-[#efe9dd] bg-white p-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff4ef] text-xl font-bold text-[#ef4444]">
+    <aside className={`${jobFeedTheme.panel} overflow-hidden rounded-[24px]`}>
+      <div className="border-b border-border p-5">
+        <div className="flex items-center gap-4 rounded-[20px] border border-border bg-card p-4">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-xl font-bold text-primary">
             {job.company.slice(0, 1)}
           </div>
           <div className="min-w-0">
@@ -39,11 +39,11 @@ const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
         </div>
       </div>
 
-      <div className="h-44 border-y border-[#f3ede4] bg-[linear-gradient(180deg,rgba(255,244,240,0.7),rgba(255,255,255,0.92)),radial-gradient(circle_at_top_right,rgba(239,68,68,0.18),transparent_36%),linear-gradient(135deg,#fff0eb,#ffe8df)] p-4">
-        <div className="relative h-full overflow-hidden rounded-[22px] border border-white/80 bg-[linear-gradient(135deg,#ffd8ce,#fff5f0)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_82%,rgba(239,68,68,0.18),transparent_20%),radial-gradient(circle_at_82%_18%,rgba(248,113,113,0.18),transparent_18%)]" />
+      <div className="h-44 border-y border-border bg-accent/40 p-4">
+        <div className="relative h-full overflow-hidden rounded-[22px] border border-background/80 bg-gradient-to-br from-accent via-background to-secondary">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_82%,rgba(15,23,42,0.06),transparent_20%),radial-gradient(circle_at_82%_18%,rgba(15,23,42,0.08),transparent_18%)]" />
           <div className="absolute bottom-0 left-0 right-0 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ef4444]/80">Japan Focus</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary/80">Japan Focus</p>
             <h4 className={`mt-2 text-2xl font-semibold ${jobFeedTheme.title}`}>{job.title}</h4>
           </div>
         </div>
@@ -55,7 +55,7 @@ const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
             <span
               key={badge}
               className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                index === 0 ? "bg-[#ef4444] text-white" : jobFeedTheme.accentSoft
+                index === 0 ? "bg-primary text-primary-foreground" : jobFeedTheme.accentSoft
               }`}
             >
               {badge}
@@ -66,28 +66,30 @@ const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h4 className={`text-xl font-semibold ${jobFeedTheme.accent}`}>Job Description</h4>
-            <ChevronDown className="h-5 w-5 text-[#8e8a80]" />
+            <ChevronDown className="h-5 w-5 text-muted-foreground" />
           </div>
           <p className={`text-sm leading-7 ${jobFeedTheme.muted}`}>
             {job.description || "This listing is ready for applicants who want a clearer view of role expectations, company context, and relocation-friendly details."}
           </p>
         </div>
 
-        <div className="grid gap-3 rounded-[20px] bg-[#faf8f3] p-4">
-          <div className="flex items-center gap-3">
-            <Building2 className="h-4 w-4 text-[#ef4444]" />
-            <span className={`text-sm ${jobFeedTheme.title}`}>{job.company}</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <MapPin className="h-4 w-4 text-[#ef4444]" />
-            <span className={`text-sm ${jobFeedTheme.title}`}>{job.location || "Japan"}</span>
+        <div className="rounded-[20px] bg-secondary p-4">
+          <div className="grid gap-3">
+            <div className="flex items-center gap-3">
+              <Building2 className="h-4 w-4 text-primary" />
+              <span className={`text-sm ${jobFeedTheme.title}`}>{job.company}</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className={`text-sm ${jobFeedTheme.title}`}>{job.location || "Japan"}</span>
+            </div>
           </div>
         </div>
 
         <Link
           href={`/job-application/${job.id}`}
           prefetch
-          className="inline-flex w-full items-center justify-center gap-2 rounded-[18px] bg-[#ef4444] px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_rgba(239,68,68,0.26)] transition hover:bg-[#e24242]"
+          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[18px] bg-primary text-sm font-semibold text-primary-foreground shadow-[0_18px_36px_rgba(15,23,42,0.14)] hover:bg-primary/90"
         >
           Apply to this job
           <ArrowUpRight className="h-4 w-4" />

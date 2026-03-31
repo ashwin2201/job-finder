@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react"
 import { Flame } from "lucide-react"
 
 import JobFeedDetailPanel from "../../components/job-feed/JobFeedDetailPanel"
+import JobDetail from "../../components/job-feed/JobDetail"
 import JobFeedHeader from "../../components/job-feed/JobFeedHeader"
 import JobFeedList from "../../components/job-feed/JobFeedList"
 import JobFeedRail from "../../components/job-feed/JobFeedRail"
@@ -21,6 +22,7 @@ const JobFeed = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedJobId, setSelectedJobId] = useState<number | null>(null)
   const [activeCompany, setActiveCompany] = useState<string | null>(null)
+  const [showJobDetail, setShowJobDetail] = useState(false)
 
   const fetchAndSetJobPostings = async () => {
     try {
@@ -67,6 +69,7 @@ const JobFeed = () => {
   useEffect(() => {
     if (!filteredJobs.length) {
       setSelectedJobId(null)
+      setShowJobDetail(false)
       return
     }
 
@@ -102,10 +105,10 @@ const JobFeed = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#ece9e2] px-4 py-8">
-        <div className={`mx-auto flex min-h-[80vh] max-w-7xl items-center justify-center rounded-[34px] ${jobFeedTheme.shell}`}>
+      <div className="min-h-screen bg-muted/60 px-4 py-8">
+        <div className={`mx-auto flex min-h-screen max-w-7xl items-center justify-center rounded-[34px] ${jobFeedTheme.shell}`}>
           <div className="flex flex-col items-center gap-4 text-slate-600">
-            <div className="h-16 w-16 animate-spin rounded-full border-4 border-[#f3e4df] border-t-[#ef4444]" />
+            <div className="h-16 w-16 animate-spin rounded-full border-4 border-accent border-t-primary" />
             <p className="text-lg font-medium">Building your personalized listings view...</p>
           </div>
         </div>
@@ -115,14 +118,14 @@ const JobFeed = () => {
 
   if (jobPostings.length === 0) {
     return (
-      <div className="min-h-screen bg-[#ece9e2] px-4 py-8">
-        <div className={`mx-auto flex min-h-[80vh] max-w-7xl items-center justify-center rounded-[34px] ${jobFeedTheme.shell}`}>
+      <div className="min-h-screen bg-muted/60 px-4 py-8">
+        <div className={`mx-auto flex min-h-screen max-w-7xl items-center justify-center rounded-[34px] ${jobFeedTheme.shell}`}>
           <div className="max-w-md space-y-4 text-center">
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-[#fff2ef] text-[#ef4444]">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-accent text-primary">
               <Flame className="h-10 w-10" />
             </div>
-            <h2 className="text-3xl font-semibold tracking-tight text-[#1c1a21]">No matching jobs yet</h2>
-            <p className="text-[#8e8a80]">We couldn&apos;t find any job postings right now. Refresh the feed and we&apos;ll try again.</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground">No matching jobs yet</h2>
+            <p className="text-muted-foreground">We couldn&apos;t find any job postings right now. Refresh the feed and we&apos;ll try again.</p>
             <button onClick={fetchAndSetJobPostings} className={`rounded-full px-6 py-3 font-medium transition ${jobFeedTheme.button}`}>
               Refresh Jobs
             </button>
@@ -133,39 +136,65 @@ const JobFeed = () => {
   }
 
   return (
-    <div className="min-h-screen max-h-screen bg-[#ece9e2] px-4 py-6 sm:px-6">
-      <div className={`mx-auto grid max-w-[1440px] max-h-screen overflow-hidden my-5 rounded-[34px] ${jobFeedTheme.shell} lg:grid-cols-[76px_255px_minmax(0,1fr)]`}>
+    <div className="h-screen overflow-hidden bg-muted/60 px-4 sm:px-6">
+      <div className={`mx-auto grid h-screen max-w-[1440px] overflow-hidden ${jobFeedTheme.shell} lg:grid-cols-[76px_255px_minmax(0,1fr)]`}>
         <JobFeedRail />
 
-        <JobFeedSidebar
-          companies={liveCompanies.length ? liveCompanies : fallbackCompanies}
-          activeCompany={activeCompany}
-          onCompanyPick={(company) => setActiveCompany((current) => (current === company ? null : company))}
-        />
+        <div className="overflow-y-auto">
+          <JobFeedSidebar
+            companies={liveCompanies.length ? liveCompanies : fallbackCompanies}
+            activeCompany={activeCompany}
+            onCompanyPick={(company) => setActiveCompany((current) => (current === company ? null : company))}
+          />
+        </div>
 
-        <main className="min-w-0 bg-[#f8f6f1]">
+        <main className="grid min-w-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-secondary/40">
           <JobFeedHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
-          <div className="grid gap-5 p-5 sm:p-6 xl:grid-cols-[minmax(0,1.4fr)_320px]">
-            <section className="space-y-4">
+          <div className="grid min-h-0 gap-5 p-5 sm:p-6 xl:grid-cols-[minmax(0,1.4fr)_320px]">
+            <section className="flex min-h-0 flex-col gap-4">
               <div className="flex items-center justify-between px-1">
                 <div>
                   <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Live feed</p>
                   <h2 className={`mt-1 text-xl font-semibold ${jobFeedTheme.title}`}>Matching roles</h2>
                 </div>
-                <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#8e8a80] shadow-sm">
+                <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
                   {filteredJobs.length} results
                 </span>
               </div>
 
               {filteredJobs.length ? (
-                <div className="overflowY-scroll">
-                  <JobFeedList jobs={filteredJobs} selectedJobId={selectedJob?.id ?? null} onSelect={setSelectedJobId} />
-                  <JobFeedSummaryStrip job={selectedJob} badges={detailBadges} />
+                <div className="min-h-0 space-y-4 overflow-y-auto pr-2 flex flex-row">
+                  {showJobDetail ? (
+                    <JobDetail
+                      job={selectedJob}
+                      badges={detailBadges}
+                      onBack={() => setShowJobDetail(false)}
+                    />
+                  ) : (
+                    <>
+                      <div className="flex flex-col">
+                        <JobFeedList
+                          jobs={filteredJobs}
+                          selectedJobId={selectedJob?.id ?? null}
+                          onSelect={(jobId) => {
+                            setSelectedJobId(jobId)
+                            setShowJobDetail(false)
+                          }}
+                          onShowJobDetail={(job) => {
+                            setSelectedJobId(job.id)
+                            setShowJobDetail(true)
+                          }}
+                        />
+                        <JobFeedSummaryStrip job={selectedJob} badges={detailBadges} />
+                      </div>
+                      <JobFeedDetailPanel job={selectedJob} badges={detailBadges} />
+                    </>
+                  )}
                 </div>
               ) : (
-                <div className={`${jobFeedTheme.panel} p-8 text-center`}>
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff2ef] text-[#ef4444]">
+                <div className={`${jobFeedTheme.panel} rounded-[24px] p-8 text-center`}>
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
                     <Flame className="h-6 w-6" />
                   </div>
                   <h3 className={`mt-4 text-xl font-semibold ${jobFeedTheme.title}`}>No jobs match those filters</h3>
@@ -173,8 +202,6 @@ const JobFeed = () => {
                 </div>
               )}
             </section>
-
-            <JobFeedDetailPanel job={selectedJob} badges={detailBadges} />
           </div>
         </main>
       </div>

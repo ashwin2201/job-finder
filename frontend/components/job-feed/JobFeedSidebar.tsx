@@ -16,48 +16,50 @@ const JobFeedSidebar = ({ companies, activeCompany, onCompanyPick }: JobFeedSide
           <button
             key={option}
             type="button"
-            className={`${jobFeedTheme.panel} flex w-full items-center justify-between px-4 py-3 text-sm font-semibold ${jobFeedTheme.title}`}
+            className={`flex h-auto w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold ${jobFeedTheme.panel} ${jobFeedTheme.title} hover:bg-accent`}
           >
             <span className="flex items-center gap-2">
-              <span className="text-[#ef4444]">+</span>
+              <span className="text-primary">+</span>
               {option}
             </span>
-            <ChevronDown className="h-4 w-4 text-[#8e8a80]" />
+            <ChevronDown className="h-4 w-4 text-muted-foreground" />
           </button>
         ))}
       </div>
 
-      <div className={`${jobFeedTheme.panel} mt-5 p-4`}>
+      <div className={`${jobFeedTheme.panel} mt-5 rounded-[24px] p-4`}>
         <h2 className={`text-lg font-semibold ${jobFeedTheme.title}`}>Key Info</h2>
         <div className="mt-4 space-y-2">
           {detailFilters.map((item) => (
             <button
               key={item}
               type="button"
-              className="flex w-full items-center justify-between rounded-2xl px-3 py-3 text-left text-sm font-medium text-[#4d4953] transition hover:bg-[#faf7f1]"
+              className="flex h-auto w-full items-center justify-between rounded-2xl px-3 py-3 text-left text-sm font-medium text-foreground hover:bg-accent"
             >
               <span>{item}</span>
-              <ChevronRight className="h-4 w-4 text-[#b0ab9f]" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </button>
           ))}
         </div>
       </div>
 
-      <div className={`${jobFeedTheme.panel} mt-5 p-4`}>
+      <div className={`${jobFeedTheme.panel} mt-5 rounded-[24px] p-4`}>
         <div className="flex items-center justify-between">
           <h2 className={`text-lg font-semibold ${jobFeedTheme.title}`}>Top Companies</h2>
           <span className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Quick picks</span>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
-          {companies.map((company: string) => {
+          {companies.map((company) => {
             const active = activeCompany === company
             return (
               <button
                 key={company}
                 type="button"
                 onClick={() => onCompanyPick(company)}
-                className={`rounded-full px-3 py-2 text-xs font-semibold transition ${
-                  active ? "bg-[#ef4444] text-white" : "bg-[#f4f1eb] text-[#5a5660] hover:bg-[#ece7de]"
+                className={`rounded-full px-3 py-2 text-xs font-semibold ${
+                  active
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "bg-secondary text-secondary-foreground hover:bg-accent"
                 }`}
               >
                 {company}
