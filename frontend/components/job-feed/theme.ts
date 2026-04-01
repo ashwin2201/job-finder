@@ -4,9 +4,9 @@ import {
   ClipboardList,
   Flame,
   LayoutGrid,
-  Search,
   Settings2,
   ShieldCheck,
+  LayoutDashboard
 } from "lucide-react"
 
 export const jobFeedTheme = {
@@ -25,14 +25,14 @@ export const jobFeedTheme = {
 } as const
 
 export const railItems = [
-  { label: "Listings", icon: LayoutGrid, active: true },
-  { label: "Saved", icon: ClipboardList },
-  { label: "Visa", icon: ShieldCheck },
-  { label: "Search", icon: Search },
-  { label: "Trending", icon: Flame },
-  { label: "Filters", icon: Settings2 },
-  { label: "Work", icon: BriefcaseBusiness },
-  { label: "Focus", icon: CircleDot },
+  { label: "Listings", icon: LayoutGrid, active: true, url: "/job-feed" },
+  { label: "Saved", icon: ClipboardList, url: "/saved" },
+  { label: "Visa", icon: ShieldCheck, url: "/visa" },
+  { label: "Dashboard", icon: LayoutDashboard, url: "/dashboard" },
+  { label: "Trending", icon: Flame, url: "/trending" },
+  { label: "Filters", icon: Settings2, url: "/filters" },
+  { label: "Work", icon: BriefcaseBusiness, url: "/work" },
+  { label: "Focus", icon: CircleDot, url: "/focus" },
 ]
 
 export const primaryFilterOptions = [

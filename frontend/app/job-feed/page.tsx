@@ -136,76 +136,75 @@ const JobFeed = () => {
   }
 
   return (
-    <div className="h-screen overflow-hidden bg-muted/60 px-4 sm:px-6">
-      <div className={`mx-auto grid h-screen max-w-[1440px] overflow-hidden ${jobFeedTheme.shell} lg:grid-cols-[76px_255px_minmax(0,1fr)]`}>
-        <JobFeedRail />
-
-        <div className="overflow-y-auto">
-          <JobFeedSidebar
-            companies={liveCompanies.length ? liveCompanies : fallbackCompanies}
-            activeCompany={activeCompany}
-            onCompanyPick={(company) => setActiveCompany((current) => (current === company ? null : company))}
-          />
-        </div>
-
-        <main className="grid min-w-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-secondary/40">
-          <JobFeedHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-
-          <div className="grid min-h-0 gap-5 p-5 sm:p-6 xl:grid-cols-[minmax(0,1.4fr)_320px]">
-            <section className="flex min-h-0 flex-col gap-4">
-              <div className="flex items-center justify-between px-1">
-                <div>
-                  <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Live feed</p>
-                  <h2 className={`mt-1 text-xl font-semibold ${jobFeedTheme.title}`}>Matching roles</h2>
-                </div>
-                <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
-                  {filteredJobs.length} results
-                </span>
-              </div>
-
-              {filteredJobs.length ? (
-                <div className="min-h-0 space-y-4 overflow-y-auto pr-2 flex flex-row">
-                  {showJobDetail ? (
-                    <JobDetail
-                      job={selectedJob}
-                      badges={detailBadges}
-                      onBack={() => setShowJobDetail(false)}
-                    />
-                  ) : (
-                    <>
-                      <div className="flex flex-col">
-                        <JobFeedList
-                          jobs={filteredJobs}
-                          selectedJobId={selectedJob?.id ?? null}
-                          onSelect={(jobId) => {
-                            setSelectedJobId(jobId)
-                            setShowJobDetail(false)
-                          }}
-                          onShowJobDetail={(job) => {
-                            setSelectedJobId(job.id)
-                            setShowJobDetail(true)
-                          }}
-                        />
-                        <JobFeedSummaryStrip job={selectedJob} badges={detailBadges} />
-                      </div>
-                      <JobFeedDetailPanel job={selectedJob} badges={detailBadges} />
-                    </>
-                  )}
-                </div>
-              ) : (
-                <div className={`${jobFeedTheme.panel} rounded-[24px] p-8 text-center`}>
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
-                    <Flame className="h-6 w-6" />
-                  </div>
-                  <h3 className={`mt-4 text-xl font-semibold ${jobFeedTheme.title}`}>No jobs match those filters</h3>
-                  <p className={`mt-2 text-sm ${jobFeedTheme.muted}`}>Try a different keyword or clear the company quick-pick.</p>
-                </div>
-              )}
-            </section>
-          </div>
-        </main>
-      </div>
+    <>
+    <div className="overflow-y-auto">
+      <JobFeedSidebar
+        companies={liveCompanies.length ? liveCompanies : fallbackCompanies}
+        activeCompany={activeCompany}
+        onCompanyPick={(company) => setActiveCompany((current) => (current === company ? null : company))}
+      />
     </div>
+
+    <main className="grid min-w-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-secondary/40">
+      <JobFeedHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+
+      <div className={`grid min-h-0 gap-5 p-5 sm:p-6 ${showJobDetail ? "xl:grid-cols-1" : "xl:grid-cols-[minmax(0,1.4fr)_320px]"}`}>
+        <section className="flex min-h-0 flex-col gap-4">
+          <div className="flex items-center justify-between px-1">
+            <div>
+              <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Live feed</p>
+              <h2 className={`mt-1 text-xl font-semibold ${jobFeedTheme.title}`}>Matching roles</h2>
+            </div>
+            <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground shadow-sm">
+              {filteredJobs.length} results
+            </span>
+          </div>
+
+          {filteredJobs.length ? (
+            <div className="min-h-0 space-y-4 overflow-y-auto pr-2">
+              {showJobDetail ? (
+                <JobDetail
+                  job={selectedJob}
+                  badges={detailBadges}
+                  onBack={() => setShowJobDetail(false)}
+                />
+              ) : (
+                <>
+                  <JobFeedList
+                    jobs={filteredJobs}
+                    selectedJobId={selectedJob?.id ?? null}
+                    onSelect={(jobId) => {
+                      setSelectedJobId(jobId)
+                      setShowJobDetail(false)
+                    }}
+                    onShowJobDetail={(job) => {
+                      setSelectedJobId(job.id)
+                      setShowJobDetail(true)
+                    }}
+                  />
+                <JobFeedSummaryStrip job={selectedJob} badges={detailBadges} />
+                </>
+              )}
+            </div>
+          ) : (
+            <div className={`${jobFeedTheme.panel} rounded-[24px] p-8 text-center`}>
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
+                <Flame className="h-6 w-6" />
+              </div>
+              <h3 className={`mt-4 text-xl font-semibold ${jobFeedTheme.title}`}>No jobs match those filters</h3>
+              <p className={`mt-2 text-sm ${jobFeedTheme.muted}`}>Try a different keyword or clear the company quick-pick.</p>
+            </div>
+          )}
+        </section>
+
+        <aside className={`min-h-0 ${showJobDetail ? "hidden" : ""}`}>
+          <div className="h-full overflow-y-auto pl-1">
+            <JobFeedDetailPanel job={selectedJob} badges={detailBadges} />
+          </div>
+        </aside>
+      </div>
+    </main>
+    </>
   )
 }
 

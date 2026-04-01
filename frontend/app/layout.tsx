@@ -3,6 +3,8 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
+import JobFeedRail from "@/components/job-feed/JobFeedRail"
+import { jobFeedTheme } from "@/components/job-feed/theme"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[#ece9e2] font-[family-name:var(--font-geist-sans)] antialiased`}>
-          {children}
+          <div className="h-screen overflow-hidden bg-muted/60 px-4 sm:px-6">
+            <div className={`mx-auto grid h-screen max-w-[1440px] overflow-hidden ${jobFeedTheme.shell} lg:grid-cols-[76px_255px_minmax(0,1fr)]`}>
+              <JobFeedRail />
+              {children}
+            </div>
+          </div>
         </body>
       </html>
     </ClerkProvider>

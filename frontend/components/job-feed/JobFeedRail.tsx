@@ -1,6 +1,7 @@
 import { ChevronLeft, Moon } from "lucide-react"
 
 import { jobFeedTheme, railItems } from "./theme"
+import Link from "next/link"
 
 const JobFeedRail = () => {
   return (
@@ -13,17 +14,15 @@ const JobFeedRail = () => {
         </div>
 
         <nav className="space-y-2 px-3">
-          {railItems.map(({ label, icon: Icon, active }) => (
-            <button
-              key={label}
-              className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl transition ${
-                active ? "bg-accent text-primary hover:bg-accent" : "text-muted-foreground hover:bg-accent"
-              }`}
-              aria-label={label}
-            >
-              {active ? <span className="absolute -right-3 h-8 w-1 rounded-full bg-primary" /> : null}
+          {railItems.map(({ label, icon: Icon, active, url }) => (
+            <Link key={label} 
+              href={url} 
+              className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl transition
+                ${active ? "bg-accent text-primary hover:bg-accent" : "text-muted-foreground hover:bg-accent"}`}
+              >
+              {active ? <span className="absolute -right-6 h-8 w-1 rounded-full bg-primary" /> : null}
               <Icon className="h-5 w-5" />
-            </button>
+            </Link>
           ))}
         </nav>
       </div>
