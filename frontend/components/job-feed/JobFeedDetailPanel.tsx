@@ -13,7 +13,7 @@ type JobFeedDetailPanelProps = {
 const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
   if (!job) {
     return (
-      <aside className={`${jobFeedTheme.panel} flex min-h-[480px] items-center justify-center p-8`}>
+      <aside className={`${jobFeedTheme.panel} flex min-h-[480px] items-center justify-center p-8 w-100vh`}>
         <div className="space-y-3 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff2ef] text-[#ef4444]">
             <Sparkles className="h-6 w-6" />
@@ -26,7 +26,7 @@ const JobFeedDetailPanel = ({ job, badges }: JobFeedDetailPanelProps) => {
   }
 
   return (
-    <aside className={`${jobFeedTheme.panel} overflow-hidden`}>
+    <aside className={`${jobFeedTheme.panel}`}>
       <div className="border-b border-[#efece5] p-5">
         <div className="flex items-center gap-4 rounded-[20px] border border-[#efe9dd] bg-white p-4">
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff4ef] text-xl font-bold text-[#ef4444]">

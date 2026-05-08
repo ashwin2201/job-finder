@@ -1,8 +1,8 @@
 from sqlmodel import Session, select
 
-from app.models.job import Job
-from app.integrations.jobs_matcher.job_matcher import match_jobs_tfidf
-from app.integrations.jobs_matcher.scraper import scrape_jobs
+from models.job import Job
+from integrations.jobs_matcher.job_matcher import match_jobs_tfidf
+from integrations.jobs_matcher.scraper import scrape_jobs
 
 
 def list_jobs(session: Session) -> list[Job]:
@@ -21,10 +21,10 @@ def seed_jobs_if_empty(session: Session) -> None:
     for scraped_job in scrape_jobs():
         session.add(
             Job(
-                title=scraped_job.title,
-                company=scraped_job.company,
-                location=scraped_job.location,
-                description=scraped_job.description,
+                title=scraped_job["title"],
+                company=scraped_job["company"],
+                location=scraped_job["location"],
+                description=scraped_job["description"],
             )
         )
     session.commit()

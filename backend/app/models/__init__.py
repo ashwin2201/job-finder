@@ -1,2 +1,2 @@
-from app.models.job import Job
-from app.models.resume import GeneratedResume, ResumeSubmission
+from models.job import Job
+from models.resume import GeneratedResume, ResumeSubmission

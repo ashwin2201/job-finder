@@ -1,52 +1,18 @@
-"use client"
+import { redirect } from "next/navigation"
+import { auth } from "@clerk/nextjs/server"
+import { SignIn, SignUpButton } from "@clerk/nextjs"
 
-import Link from "next/link"
-import { SignIn, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
-import { BriefcaseBusiness, CircleDot, LogIn, ShieldCheck, Sparkles } from "lucide-react"
+export default async function Home() {
+  const { userId } = await auth()
 
-const railItems = [
-  { icon: BriefcaseBusiness, active: true },
-  { icon: ShieldCheck },
-  { icon: Sparkles },
-  { icon: LogIn },
-  { icon: CircleDot },
-]
+  if (userId) {
+    redirect("/dashboard")
+  }
 
-export default function Home() {
   return (
     <div className="min-h-screen px-4 py-6 sm:px-6">
-      <div className="mx-auto grid max-w-[1440px] overflow-hidden rounded-[34px] bg-[#f8f6f1] shadow-[0_28px_90px_rgba(15,23,42,0.08)] lg:grid-cols-[76px_minmax(0,1fr)]">
-        <aside className="hidden min-h-full flex-col justify-between border-r border-[#eceae4] bg-white py-6 lg:flex">
-          <div className="space-y-4">
-            <div className="px-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ef4444] text-white shadow-[0_16px_30px_rgba(239,68,68,0.32)]">
-                <BriefcaseBusiness className="h-5 w-5" />
-              </div>
-            </div>
-
-            <nav className="space-y-2 px-3">
-              {railItems.map(({ icon: Icon, active }, index) => (
-                <div
-                  key={index}
-                  className={`relative flex h-11 w-11 items-center justify-center rounded-2xl ${
-                    active ? "bg-[#fff2ef] text-[#ef4444]" : "text-[#7e7a72]"
-                  }`}
-                >
-                  {active ? <span className="absolute -right-3 h-8 w-1 rounded-full bg-[#ef4444]" /> : null}
-                  <Icon className="h-5 w-5" />
-                </div>
-              ))}
-            </nav>
-          </div>
-
-          <div className="px-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ece8e0] bg-white text-[#8e8a80]">
-              <CircleDot className="h-4 w-4" />
-            </div>
-          </div>
-        </aside>
-
-        <main className="min-w-0">
+      <div className="mx-auto max-w-[1440px] overflow-hidden rounded-[34px] bg-[#f8f6f1] shadow-[0_28px_90px_rgba(15,23,42,0.08)]">
+        <main className="w-full">
           <div className="h-16 border-b border-[#eceae4] bg-white/70" />
 
           <div className="grid gap-8 p-5 md:p-8 xl:grid-cols-[1.05fr_1.2fr] xl:items-center">
@@ -91,89 +57,58 @@ export default function Home() {
             </section>
 
             <section className="mx-auto w-full max-w-[520px]">
-              <SignedOut>
-                <div className="space-y-6">
-                  <div>
-                    <h1 className="text-4xl font-semibold tracking-tight text-[#1c1a21]">
-                      Welcome to <span className="text-[#ef4444]">JobNavi Japan!</span>
-                    </h1>
-                    <p className="mt-3 text-lg text-[#5f5a62]">Sign in to find your dream job in Japan.</p>
-                  </div>
-
-                  <div className="rounded-[28px] border border-[#efe5db] bg-white p-5 shadow-[0_16px_40px_rgba(15,23,42,0.05)] sm:p-7">
-                    <SignIn
-                      routing="hash"
-                      forceRedirectUrl="/dashboard"
-                      fallbackRedirectUrl="/dashboard"
-                      signUpUrl="/"
-                      appearance={{
-                        elements: {
-                          rootBox: "w-full",
-                          cardBox: "w-full shadow-none",
-                          card: "w-full border-0 bg-transparent p-0 shadow-none",
-                          header: "hidden",
-                          footer: "hidden",
-                          dividerRow: "py-4",
-                          dividerLine: "bg-[#ece6dc]",
-                          dividerText: "text-[#8f8993]",
-                          formFieldLabel: "hidden",
-                          formFieldInput:
-                            "h-12 rounded-2xl border border-[#ece6dc] bg-[#f6f6f8] text-[#2d2a33] shadow-none placeholder:text-[#9d99a2]",
-                          formButtonPrimary:
-                            "h-12 rounded-2xl border-0 bg-[#ef4444] text-base font-semibold shadow-[0_18px_36px_rgba(239,68,68,0.24)] hover:bg-[#e04343]",
-                          socialButtonsBlockButton:
-                            "h-11 rounded-2xl border border-[#e8e1d7] bg-white text-[#2d2a33] shadow-none hover:bg-[#faf8f4]",
-                          socialButtonsBlockButtonText: "font-semibold",
-                          formResendCodeLink: "text-[#ef4444]",
-                          identityPreviewEditButton: "text-[#ef4444]",
-                          footerActionLink: "text-[#ef4444] hover:text-[#df3a3a]",
-                          formFieldSuccessText: "text-emerald-600",
-                          formFieldWarningText: "text-amber-600",
-                          alertText: "text-sm",
-                        },
-                      }}
-                    />
-
-                    <p className="mt-6 text-center text-sm text-[#6d6971]">
-                      Don&apos;t have an account?{" "}
-                      <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
-                        <button type="button" className="font-semibold text-[#ef4444] transition hover:text-[#de3e3e]">
-                          Sign Up
-                        </button>
-                      </SignUpButton>
-                    </p>
-                  </div>
+              <div className="space-y-6">
+                <div>
+                  <h1 className="text-4xl font-semibold tracking-tight text-[#1c1a21]">
+                    Welcome to <span className="text-[#ef4444]">JobNavi Japan!</span>
+                  </h1>
+                  <p className="mt-3 text-lg text-[#5f5a62]">Sign in to find your dream job in Japan.</p>
                 </div>
-              </SignedOut>
 
-              <SignedIn>
-                <div className="space-y-6 rounded-[28px] border border-[#efe5db] bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.05)] sm:p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h1 className="text-3xl font-semibold text-[#1c1a21]">You&apos;re signed in</h1>
-                      <p className="mt-2 text-[#5f5a62]">Jump back into your dashboard or continue browsing matched roles.</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#ece8e0] bg-white p-1.5 shadow-sm">
-                      <UserButton />
-                    </div>
-                  </div>
+                <div className="rounded-[28px] border border-[#efe5db] bg-white p-5 shadow-[0_16px_40px_rgba(15,23,42,0.05)] sm:p-7">
+                  <SignIn
+                    routing="hash"
+                    forceRedirectUrl="/dashboard"
+                    fallbackRedirectUrl="/dashboard"
+                    signUpUrl="/"
+                    appearance={{
+                      elements: {
+                        rootBox: "w-full",
+                        cardBox: "w-full shadow-none",
+                        card: "w-full border-0 bg-transparent p-0 shadow-none",
+                        header: "hidden",
+                        footer: "hidden",
+                        dividerRow: "py-4",
+                        dividerLine: "bg-[#ece6dc]",
+                        dividerText: "text-[#8f8993]",
+                        formFieldLabel: "hidden",
+                        formFieldInput:
+                          "h-12 rounded-2xl border border-[#ece6dc] bg-[#f6f6f8] text-[#2d2a33] shadow-none placeholder:text-[#9d99a2]",
+                        formButtonPrimary:
+                          "h-12 rounded-2xl border-0 bg-[#ef4444] text-base font-semibold shadow-[0_18px_36px_rgba(239,68,68,0.24)] hover:bg-[#e04343]",
+                        socialButtonsBlockButton:
+                          "h-11 rounded-2xl border border-[#e8e1d7] bg-white text-[#2d2a33] shadow-none hover:bg-[#faf8f4]",
+                        socialButtonsBlockButtonText: "font-semibold",
+                        formResendCodeLink: "text-[#ef4444]",
+                        identityPreviewEditButton: "text-[#ef4444]",
+                        footerActionLink: "text-[#ef4444] hover:text-[#df3a3a]",
+                        formFieldSuccessText: "text-emerald-600",
+                        formFieldWarningText: "text-amber-600",
+                        alertText: "text-sm",
+                      },
+                    }}
+                  />
 
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <Link
-                      href="/dashboard"
-                      className="rounded-[20px] bg-[#ef4444] px-5 py-4 text-center text-sm font-semibold text-white shadow-[0_18px_36px_rgba(239,68,68,0.24)] transition hover:bg-[#e04343]"
-                    >
-                      Go to Dashboard
-                    </Link>
-                    <Link
-                      href="/job-feed"
-                      className="rounded-[20px] border border-[#ece6dc] bg-[#faf8f4] px-5 py-4 text-center text-sm font-semibold text-[#2d2a33] transition hover:border-[#ef4444] hover:text-[#ef4444]"
-                    >
-                      Explore Job Feed
-                    </Link>
-                  </div>
+                  <p className="mt-6 text-center text-sm text-[#6d6971]">
+                    Don&apos;t have an account?{" "}
+                    <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
+                      <button type="button" className="font-semibold text-[#ef4444] transition hover:text-[#de3e3e]">
+                        Sign Up
+                      </button>
+                    </SignUpButton>
+                  </p>
                 </div>
-              </SignedIn>
+              </div>
             </section>
           </div>
         </main>

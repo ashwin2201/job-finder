@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session
 
-from app.core.database import get_session
-from app.schemas.resume import ResumeInput
-from app.services.resumes import (
+from core.database import get_session
+from schemas.resume import ResumeInput
+from services.resumes import (
     find_matching_jobs,
     generate_resume,
     get_latest_generated_resume,

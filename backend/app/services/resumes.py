@@ -1,10 +1,10 @@
 from fastapi import HTTPException
 from sqlmodel import Session, desc, select
 
-from app.integrations.resume_generator.rag_pipeline import build_pipeline
-from app.models.resume import GeneratedResume, ResumeSubmission
-from app.schemas.resume import ResumeInput
-from app.services.jobs import rank_jobs_by_resume
+from integrations.resume_generator.rag_pipeline import build_pipeline
+from models.resume import GeneratedResume, ResumeSubmission
+from schemas.resume import ResumeInput
+from services.jobs import rank_jobs_by_resume
 
 
 def save_resume_submission(session: Session, resume_input: ResumeInput) -> ResumeSubmission:

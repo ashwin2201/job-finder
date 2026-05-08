@@ -36,10 +36,10 @@ const JobDetail = () => {
     }, [id])
     
     return (
-    <div>
-        <h1>{job?.title}</h1>
-        <p>{job?.description}</p>
-    </div>
+        <div>
+            <h1>{job?.title}</h1>
+            <p>{job?.description}</p>
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-from app.integrations.resume_generator.model import get_openai_client, model_name
+from integrations.resume_generator.model import get_openai_client, model_name
 
 
 client = get_openai_client()

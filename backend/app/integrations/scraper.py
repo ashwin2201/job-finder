@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 <<<<<<<< HEAD:backend/app/integrations/scraper.py
 ========
-from app.models.job import Job
+from models.job import Job
 >>>>>>>> 8b455d8 (revamped ui, added postgres integration):backend/app/integrations/jobs_matcher/scraper.py
 
 base_url = "https://jobs.gaijinpot.com"

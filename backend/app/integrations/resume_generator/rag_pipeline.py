@@ -1,7 +1,7 @@
 from langchain_core.prompts import PromptTemplate
 import re
-from app.integrations.resume_generator.model import get_openai_client, model_name
-from app.integrations.resume_generator.docs_db import vectorstore as get_vectorstore
+from integrations.resume_generator.model import get_openai_client, model_name
+from integrations.resume_generator.docs_db import vectorstore as get_vectorstore
 
 
 SYSTEM_PROMPT = (
@@ -98,4 +98,3 @@ async def build_pipeline():
 
 # Usage example:
 # checker_chain = asyncio.run(build_pipeline())
-

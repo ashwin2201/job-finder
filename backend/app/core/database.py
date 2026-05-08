@@ -5,11 +5,16 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, SQLModel, create_engine
 
-from app.core.config import settings
+from core.config import settings
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-connect_args = {"check_same_thread": False} if settings.pg_conn.startswith("sqlite") else {}
-engine = create_engine(settings.pg_conn, echo=False, connect_args=connect_args)
+connect_args = {"check_same_thread": False} if os.getenv("PG_CONN").startswith("sqlite") else {}
+engine = create_engine(os.getenv("PG_CONN"), echo=False, connect_args=connect_args)
 
 
 def create_db_and_tables() -> None:
@@ -32,7 +37,7 @@ def configure_cors(app: FastAPI) -> None:
 
 
 def build_lifespan():
-    from app.services.jobs import seed_jobs_if_empty
+    from services.jobs import seed_jobs_if_empty
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):

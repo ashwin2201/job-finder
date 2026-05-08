@@ -1,8 +1,10 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.api.router import api_router
-from app.core.database import build_lifespan, configure_cors
+from api.router import api_router
+from core.database import build_lifespan, configure_cors
+
+from dotenv import load_dotenv
 
 
 def create_app() -> FastAPI:
@@ -10,6 +12,8 @@ def create_app() -> FastAPI:
     configure_cors(application)
     application.include_router(api_router)
     return application
+
+load_dotenv() 
 
 app = create_app()
 

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
 
-from app.core.database import get_session
-from app.services.jobs import get_job, list_jobs
+from core.database import get_session
+from services.jobs import get_job, list_jobs
 
 
 router = APIRouter(prefix="/api/jobs")

@@ -1,1 +1,1 @@
-from app.schemas.resume import ResumeInput
+from schemas.resume import ResumeInput

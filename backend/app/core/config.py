@@ -1,15 +1,19 @@
+from pathlib import Path
+
 from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+
 class Settings(BaseSettings):
-    pg_conn: str = "postgresql+psycopg://postgres:root@localhost:5432/job_finder"
     frontend_origin: str = "http://localhost:3000"
     openai_api_key: SecretStr | None = None
-    openai_model: str
+    openai_model: str = "gpt-5.4"
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=BASE_DIR / ".env",
         env_file_encoding="utf-8",
         env_prefix="",
         extra="ignore",

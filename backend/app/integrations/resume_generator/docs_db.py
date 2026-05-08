@@ -1,18 +1,21 @@
 # db.py
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_postgres.vectorstores import PGVector
+from langchain_openai import OpenAIEmbeddings
+from langchain_postgres import PGVector
 
-from app.core.config import settings
+from core.config import settings
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="intfloat/multilingual-e5-large",
+embeddings = OpenAIEmbeddings(
+    model_name="text-embedding-3-large",
 )
 
 
 async def vectorstore(collection="jp_snippets"):
     return PGVector(
-        connection=settings.pg_conn,
+        connection=os.getenv("PG_CONN"),
         collection_name=collection,
         embeddings=embeddings,
     )

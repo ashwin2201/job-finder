@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from app.api.routes.jobs import router as jobs_router
-from app.api.routes.resumes import router as resumes_router
+from api.routes.jobs import router as jobs_router
+from api.routes.resumes import router as resumes_router
 
 
 api_router = APIRouter()

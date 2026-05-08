@@ -1,4 +1,4 @@
-import JobApplicationForm from '../../../components/JobApplicationForm';
+import JobApplicationForm from '../../../../components/JobApplicationForm';
 import { Job } from "@/types/Job";
 
 

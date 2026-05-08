@@ -6,9 +6,10 @@ type JobFeedListProps = {
   jobs: Job[]
   selectedJobId: number | null
   onSelect: (jobId: number) => void
+  onShowJobDetail: (job: Job) => void
 }
 
-const JobFeedList = ({ jobs, selectedJobId, onSelect }: JobFeedListProps) => {
+const JobFeedList = ({ jobs, selectedJobId, onSelect, onShowJobDetail }: JobFeedListProps) => {
   return (
     <section className="space-y-4">
       {jobs.map((job, index) => (
@@ -18,6 +19,7 @@ const JobFeedList = ({ jobs, selectedJobId, onSelect }: JobFeedListProps) => {
           index={index}
           selected={job.id === selectedJobId}
           onSelect={() => onSelect(job.id)}
+          showJobDetail={() => onShowJobDetail(job)}
         />
       ))}
     </section>
