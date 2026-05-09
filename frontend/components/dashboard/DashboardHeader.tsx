@@ -14,13 +14,6 @@ const DashboardHeader = () => {
       </div>
 
       <div className="flex items-center gap-3">
-        <div className={`flex min-w-0 flex-1 items-center gap-3 rounded-2xl px-4 py-3 ${jobFeedTheme.search} sm:min-w-[300px]`}>
-          <Search className="h-4 w-4 text-[#8e8a80]" />
-          <input
-            placeholder="Search job or position"
-            className="w-full bg-transparent text-sm text-[#302d35] outline-none placeholder:text-[#aaa59b]"
-          />
-        </div>
         <button className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#ece8e0] bg-white text-[#4f9e6f] shadow-sm">
           <SlidersHorizontal className="h-4 w-4" />
         </button>

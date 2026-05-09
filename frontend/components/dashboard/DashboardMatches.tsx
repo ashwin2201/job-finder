@@ -6,7 +6,7 @@ import { matchInsights, matchRows } from "./data"
 
 const DashboardMatches = () => {
   return (
-    <section className="grid gap-5 xl:grid-cols-[minmax(0,1.35fr)_320px]">
+    <section>
       <div className={`${jobFeedTheme.panel} p-5`}>
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#efece5] pb-4">
           <div className="flex items-center gap-2">
@@ -58,53 +58,6 @@ const DashboardMatches = () => {
           ))}
         </div>
       </div>
-
-      <aside className="space-y-5">
-        <div className={`${jobFeedTheme.panel} p-5`}>
-          <div className="flex items-center justify-between">
-            <h3 className={`text-2xl font-semibold ${jobFeedTheme.title}`}>Match score</h3>
-            <ChevronRight className="h-5 w-5 text-[#8e8a80]" />
-          </div>
-          <div className="mt-5 rounded-[22px] bg-[#faf8f3] p-5">
-            <p className={`text-sm ${jobFeedTheme.muted}`}>Current profile fit</p>
-            <p className={`mt-2 text-5xl font-semibold ${jobFeedTheme.title}`}>{matchInsights.score}</p>
-          </div>
-
-          <div className="mt-5 space-y-5">
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#ef4444]">Strengths</h4>
-              <ul className="mt-3 space-y-3 text-sm text-[#5e5963]">
-                {matchInsights.strengths.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#fff2ef] text-[#ef4444]">+</div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f97360]">Weaknesses</h4>
-              <ul className="mt-3 space-y-3 text-sm text-[#5e5963]">
-                {matchInsights.gaps.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#fff6f3] text-[#f97360]">-</div>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <Link
-            href="/submit-resume"
-            prefetch
-            className={`mt-6 inline-flex w-full items-center justify-center rounded-[18px] px-4 py-3 text-sm font-semibold transition ${jobFeedTheme.button}`}
-          >
-            Improve My Resume
-          </Link>
-        </div>
-      </aside>
     </section>
   )
 }

@@ -1,14 +1,14 @@
 import Link from "next/link"
-import { ArrowRight, Star } from "lucide-react"
+import { ArrowRight, Star, ChevronRight } from "lucide-react"
 
 import { jobFeedTheme } from "@/components/job-feed/theme"
 import { matchInsights, stats } from "./data"
 
 const DashboardHero = () => {
   return (
-    <section className={`${jobFeedTheme.panel} overflow-hidden`}>
-      <div className="grid gap-6 p-6 xl:grid-cols-[minmax(0,1.35fr)_340px]">
-        <div>
+    <section className="overflow-hidden">
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.35fr)_340px]">
+        <div className={`${jobFeedTheme.panel} p-5`}>
           <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Latest job matches</p>
           <h2 className={`mt-2 text-4xl font-semibold tracking-tight ${jobFeedTheme.title}`}>Welcome back, John!</h2>
           <p className={`mt-3 max-w-2xl text-base leading-7 ${jobFeedTheme.muted}`}>
@@ -35,35 +35,52 @@ const DashboardHero = () => {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[30px] border border-[#f2d2ca] bg-[linear-gradient(160deg,#fff4f0,rgba(255,255,255,0.88))] p-6">
-          <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(239,68,68,0.12),transparent_65%)]" />
-          <p className="relative text-xs font-semibold uppercase tracking-[0.24em] text-[#ef4444]/75">Weekly pulse</p>
-          <div className="relative mt-4 flex items-end gap-4">
-            <div>
-              <p className={`text-sm ${jobFeedTheme.muted}`}>Match score</p>
-              <p className={`mt-1 text-5xl font-semibold ${jobFeedTheme.title}`}>{matchInsights.score}</p>
-            </div>
-            <span className="rounded-full bg-[#fff2ef] px-3 py-1 text-xs font-semibold text-[#ef4444]">+8 this week</span>
+      <aside className="space-y-5">
+        <div className={`${jobFeedTheme.panel} p-5`}>
+          <div className="flex items-center justify-between">
+            <h3 className={`text-2xl font-semibold ${jobFeedTheme.title}`}>Match score</h3>
+            <ChevronRight className="h-5 w-5 text-[#8e8a80]" />
+          </div>
+          <div className="mt-5 rounded-[22px] bg-[#faf8f3] p-5">
+            <p className={`text-sm ${jobFeedTheme.muted}`}>Current profile fit</p>
+            <p className={`mt-2 text-5xl font-semibold ${jobFeedTheme.title}`}>{matchInsights.score}</p>
           </div>
 
-          <div className="relative mt-6 space-y-4">
-            <div className="rounded-[22px] bg-white/85 p-4 shadow-[0_10px_24px_rgba(15,23,42,0.04)]">
-              <p className={`text-sm font-semibold ${jobFeedTheme.title}`}>Strong fit signals</p>
-              <ul className="mt-3 space-y-2 text-sm text-[#5e5963]">
-                {matchInsights.strengths.slice(0, 2).map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <Star className="mt-0.5 h-4 w-4 text-[#ef4444]" />
+          <div className="mt-5 space-y-5">
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#ef4444]">Strengths</h4>
+              <ul className="mt-3 space-y-3 text-sm text-[#5e5963]">
+                {matchInsights.strengths.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#fff2ef] text-[#ef4444]">+</div>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <Link href="/job-feed" prefetch className="inline-flex items-center gap-2 text-sm font-semibold text-[#ef4444]">
-              Review new matches
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+
+            <div>
+              <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f97360]">Weaknesses</h4>
+              <ul className="mt-3 space-y-3 text-sm text-[#5e5963]">
+                {matchInsights.gaps.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#fff6f3] text-[#f97360]">-</div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+
+          <Link
+            href="/submit-resume"
+            prefetch
+            className={`mt-6 inline-flex w-full items-center justify-center rounded-[18px] px-4 py-3 text-sm font-semibold transition ${jobFeedTheme.button}`}
+          >
+            Improve My Resume
+          </Link>
         </div>
+      </aside>
       </div>
     </section>
   )
