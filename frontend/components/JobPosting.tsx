@@ -17,7 +17,7 @@ const JobPosting = ({ job, selected = false, onSelect, showJobDetail }: JobPosti
   return (
     <article
       onClick={onSelect}
-      className={`w-full cursor-pointer rounded-[22px] border p-5 text-left transition ${
+      className={`w-full cursor-pointer rounded-[22px] border p-5 text-left transition mb-8 ${
         selected
           ? "border-primary/25 bg-card shadow-[0_16px_32px_rgba(15,23,42,0.10)]"
           : "border-border bg-card shadow-[0_10px_24px_rgba(15,23,42,0.04)] hover:border-primary/30"

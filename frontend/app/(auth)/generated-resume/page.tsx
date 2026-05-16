@@ -29,6 +29,7 @@ const ResumeView = () => {
                     <p>{generatedResume}</p>
                 </div>
             )}
+            <button>Download resume</button>
         </div>
     )
 }

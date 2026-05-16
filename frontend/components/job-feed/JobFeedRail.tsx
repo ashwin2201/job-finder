@@ -1,16 +1,12 @@
 "use client"
 
 import { ChevronLeft, Moon } from "lucide-react"
-import { useState } from "react"
 import { jobFeedTheme, railItems } from "./theme"
 import Link from "next/link"
 
 const JobFeedRail = () => {
-
-  const [isActive, setIsActive] = useState(false);
-
   return (
-    <aside className={`hidden min-h-full flex-col justify-between ${jobFeedTheme.rail} py-6 lg:flex`}>
+    <aside className={`sticky top-0 hidden h-screen flex-col justify-between ${jobFeedTheme.rail} py-6 lg:flex`}>
       <div className="space-y-4">
         <div className="px-4">
           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${jobFeedTheme.button}`}>

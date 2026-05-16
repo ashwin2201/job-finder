@@ -1,7 +1,7 @@
 "use client"
 
-import React from "react"
-import { Flame } from "lucide-react"
+import React, { useRef } from "react"
+import { ChevronLeft, ChevronRight, Flame } from "lucide-react"
 
 import JobFeedDetailPanel from "../../../components/job-feed/JobFeedDetailPanel"
 import JobDetail from "../../../components/job-feed/JobDetail"
@@ -12,6 +12,7 @@ import { jobFeedTheme } from "../../../components/job-feed/theme"
 import { useJobFeed } from "../../../components/job-feed/useJobFeed"
 
 const JobFeed = () => {
+  const listScrollRef = useRef<HTMLDivElement>(null)
   const {
     activeCompany,
     clearFilters,
@@ -21,9 +22,14 @@ const JobFeed = () => {
     filterCounts,
     filteredJobs,
     filters,
+    goToNextPage,
+    goToPage,
+    goToPreviousPage,
     jobPostings,
     loading,
     openJobDetail,
+    paginatedJobs,
+    currentPage,
     searchQuery,
     selectJob,
     selectedJob,
@@ -33,8 +39,32 @@ const JobFeed = () => {
     toggleLanguage,
     toggleVisaSupport,
     toggleWorkStyle,
+    totalPages,
     closeJobDetail,
   } = useJobFeed()
+
+  const visiblePageCount = Math.min(totalPages, 5)
+  const firstVisiblePage = Math.min(Math.max(currentPage - 2, 1), Math.max(totalPages - visiblePageCount + 1, 1))
+  const paginationRange = Array.from({ length: visiblePageCount }, (_, index) => firstVisiblePage + index)
+
+  const scrollListToTop = () => {
+    listScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handlePageChange = (pageNumber: number) => {
+    goToPage(pageNumber)
+    scrollListToTop()
+  }
+
+  const handlePreviousPage = () => {
+    goToPreviousPage()
+    scrollListToTop()
+  }
+
+  const handleNextPage = () => {
+    goToNextPage()
+    scrollListToTop()
+  }
 
   if (loading) {
     return (
@@ -69,8 +99,8 @@ const JobFeed = () => {
   }
 
   return (
-    <div className="grid grid-cols-[15vw_minmax(0,1fr)] overflow-y-auto">
-      <div className="overflow-y-auto">
+    <div className="grid h-screen grid-cols-[15vw_minmax(0,1fr)] overflow-hidden">
+      <div className="h-screen overflow-y-auto">
         <JobFeedSidebar
           companies={companies}
           activeCompany={activeCompany}
@@ -84,12 +114,12 @@ const JobFeed = () => {
         />
       </div>
 
-      <main className="grid min-w-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-secondary/40">
+      <main className="grid h-screen min-w-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-secondary/40">
         <JobFeedHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
         <div className={`grid min-h-0 gap-5 p-5 sm:p-6 ${showJobDetail ? "xl:grid-cols-1" : "xl:grid-cols-[minmax(0,1.4fr)_320px]"}`}>
           <section className="flex min-h-0 flex-col gap-4">
-            <div className="flex items-center justify-between px-1">
+            <div className="flex shrink-0 items-center justify-between px-1">
               <div>
                 <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${jobFeedTheme.muted}`}>Live feed</p>
                 <h2 className={`mt-1 text-xl font-semibold ${jobFeedTheme.title}`}>Matching roles</h2>
@@ -100,7 +130,7 @@ const JobFeed = () => {
             </div>
 
             {filteredJobs.length ? (
-              <div className="min-h-0 space-y-4 overflow-y-auto pr-2">
+              <div ref={listScrollRef} className="min-h-0 space-y-4 overflow-y-auto pr-2">
                 {showJobDetail ? (
                   <JobDetail
                     job={selectedJob}
@@ -108,12 +138,57 @@ const JobFeed = () => {
                     onBack={closeJobDetail}
                   />
                 ) : (
-                  <JobFeedList
-                    jobs={filteredJobs}
-                    selectedJobId={selectedJob?.id ?? null}
-                    onSelect={selectJob}
-                    onShowJobDetail={openJobDetail}
-                  />
+                  <>
+                    <JobFeedList
+                      jobs={paginatedJobs}
+                      selectedJobId={selectedJob?.id ?? null}
+                      onSelect={selectJob}
+                      onShowJobDetail={openJobDetail}
+                    />
+
+                    {totalPages > 1 ? (
+                      <nav className={`flex flex-col gap-4 p-4`}>
+                        <div className="flex flex-wrap items-center justify-center gap-2">
+                          <button
+                            type="button"
+                            onClick={handlePreviousPage}
+                            disabled={currentPage === 1}
+                            className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            <ChevronLeft className="h-4 w-4" />
+                            Previous
+                          </button>
+
+                          <div className="flex flex-wrap items-center gap-2">
+                            {paginationRange.map((pageNumber) => (
+                              <button
+                                key={pageNumber}
+                                type="button"
+                                onClick={() => handlePageChange(pageNumber)}
+                                className={`h-10 min-w-10 rounded-full px-3 text-sm font-semibold transition ${
+                                  pageNumber === currentPage
+                                    ? "bg-primary text-primary-foreground shadow-[0_12px_28px_rgba(239,68,68,0.24)]"
+                                    : "border border-border bg-background text-foreground hover:bg-accent"
+                                }`}
+                              >
+                                {pageNumber}
+                              </button>
+                            ))}
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={handleNextPage}
+                            disabled={currentPage === totalPages}
+                            className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground transition hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            Next
+                            <ChevronRight className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </nav>
+                    ) : null}
+                  </>
                 )}
               </div>
             ) : (
@@ -127,8 +202,8 @@ const JobFeed = () => {
             )}
           </section>
 
-          <aside className={`h-10vh ${showJobDetail ? "hidden" : ""}`}>
-            <div className="pl-1">
+          <aside className={`min-h-0 ${showJobDetail ? "hidden" : ""}`}>
+            <div className="h-full overflow-y-auto pl-1 pr-1">
               <JobFeedDetailPanel job={selectedJob} badges={detailBadges} />
             </div>
           </aside>

@@ -13,6 +13,7 @@ import {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL
 const fallbackCompanies = ["Tech Solutions", "Rakuten", "Mercari", "PayPay", "SmartHR", "Line Yahoo"]
+const JOBS_PER_PAGE = 8
 
 export const useJobFeed = () => {
   const [jobPostings, setJobPostings] = useState<Job[]>([])
@@ -22,6 +23,7 @@ export const useJobFeed = () => {
   const [activeCompany, setActiveCompany] = useState<string | null>(null)
   const [filters, setFilters] = useState<JobFilters>(emptyJobFilters)
   const [showJobDetail, setShowJobDetail] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
 
   const fetchAndSetJobPostings = async () => {
     try {
@@ -54,19 +56,37 @@ export const useJobFeed = () => {
 
   const filteredJobs = useMemo(() => filterJobs(jobPostings, searchQuery, activeCompany, filters), [activeCompany, filters, jobPostings, searchQuery])
 
+  const totalPages = Math.max(1, Math.ceil(filteredJobs.length / JOBS_PER_PAGE))
+
+  const paginatedJobs = useMemo(() => {
+    const startIndex = (currentPage - 1) * JOBS_PER_PAGE
+
+    return filteredJobs.slice(startIndex, startIndex + JOBS_PER_PAGE)
+  }, [currentPage, filteredJobs])
+
   useEffect(() => {
-    if (!filteredJobs.length) {
+    setCurrentPage(1)
+  }, [searchQuery, activeCompany, filters])
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages)
+    }
+  }, [currentPage, totalPages])
+
+  useEffect(() => {
+    if (!paginatedJobs.length) {
       setSelectedJobId(null)
       setShowJobDetail(false)
       return
     }
 
-    if (!filteredJobs.some((job) => job.id === selectedJobId)) {
-      setSelectedJobId(filteredJobs[0].id)
+    if (!paginatedJobs.some((job) => job.id === selectedJobId)) {
+      setSelectedJobId(paginatedJobs[0].id)
     }
-  }, [filteredJobs, selectedJobId])
+  }, [paginatedJobs, selectedJobId])
 
-  const selectedJob = filteredJobs.find((job) => job.id === selectedJobId) ?? filteredJobs[0] ?? null
+  const selectedJob = paginatedJobs.find((job) => job.id === selectedJobId) ?? paginatedJobs[0] ?? null
 
   const detailBadges = useMemo(() => (selectedJob ? deriveJobBadges(selectedJob) : []), [selectedJob])
 
@@ -93,6 +113,21 @@ export const useJobFeed = () => {
     setActiveCompany((current) => (current === company ? null : company))
   }
 
+  const goToPage = (page: number) => {
+    setCurrentPage(Math.min(Math.max(page, 1), totalPages))
+    setShowJobDetail(false)
+  }
+
+  const goToNextPage = () => {
+    setCurrentPage((current) => Math.min(current + 1, totalPages))
+    setShowJobDetail(false)
+  }
+
+  const goToPreviousPage = () => {
+    setCurrentPage((current) => Math.max(current - 1, 1))
+    setShowJobDetail(false)
+  }
+
   const selectJob = (jobId: number) => {
     setSelectedJobId(jobId)
     setShowJobDetail(false)
@@ -116,9 +151,14 @@ export const useJobFeed = () => {
     filterCounts,
     filteredJobs,
     filters,
+    goToNextPage,
+    goToPage,
+    goToPreviousPage,
     jobPostings,
     loading,
     openJobDetail,
+    paginatedJobs,
+    currentPage,
     searchQuery,
     selectJob,
     selectedJob,
@@ -128,6 +168,7 @@ export const useJobFeed = () => {
     toggleLanguage: (value: JobFilters["languages"][number]) => toggleFilterValue("languages", value),
     toggleVisaSupport: (value: JobFilters["visaSupport"][number]) => toggleFilterValue("visaSupport", value),
     toggleWorkStyle: (value: JobFilters["workStyles"][number]) => toggleFilterValue("workStyles", value),
+    totalPages,
     closeJobDetail,
   }
 }

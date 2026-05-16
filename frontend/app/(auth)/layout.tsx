@@ -1,21 +1,8 @@
 import type { Metadata } from "next"
-import { ClerkProvider } from "@clerk/nextjs"
-import { Geist, Geist_Mono } from "next/font/google"
 
 import "../globals.css"
 import JobFeedRail from "@/components/job-feed/JobFeedRail"
 import { jobFeedTheme } from "@/components/job-feed/theme"
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 export const metadata: Metadata = {
   title: "JobNavi Japan",
@@ -28,8 +15,8 @@ export default function AuthenticatedLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="h-screen overflow-hidden bg-muted/60 px-4 sm:px-6">
-      <div className={`mx-auto grid h-screen max-w-[1440px] overflow-hidden ${jobFeedTheme.shell} lg:grid-cols-[76px_minmax(0,1fr)]`}>
+    <div className="min-h-screen bg-muted/60 px-4 sm:px-6">
+      <div className={`mx-auto grid min-h-screen max-w-[1440px] ${jobFeedTheme.shell} lg:grid-cols-[76px_minmax(0,1fr)]`}>
         <JobFeedRail />
         {children}
       </div>
