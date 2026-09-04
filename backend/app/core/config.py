@@ -9,6 +9,10 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 class Settings(BaseSettings):
     frontend_origin: str = "http://localhost:3000"
+    clerk_issuer: str | None = None
+    clerk_audience: str | None = None
+    clerk_authorized_party: str | None = None
+    clerk_webhook_secret: SecretStr | None = None
     openai_api_key: SecretStr | None = None
     openai_model: str = "gpt-5.4"
 

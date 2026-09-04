@@ -25,5 +25,18 @@ def match_jobs_tfidf(resume_text: str, job_descriptions: list[str]) -> list[int]
     return np.argsort(-similarities[0])
 
 
-jobs = match_jobs_tfidf( "Junior software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.", ["Software Engineer with 5+ years of experience in developing scalable web applications.", "Junior Developer with a passion for learning and growth.", "Project Manager with a track record of successful project delivery."])
-print("Matched job indices:", jobs)
+def score_jobs_tfidf(
+    resume_text: str,
+    job_descriptions: list[str],
+) -> list[tuple[int, float]]:
+    all_texts = [resume_text] + job_descriptions
+    tfidf_matrix = vectorizer.fit_transform(all_texts)
+    similarities = cosine_similarity(
+        tfidf_matrix[0:1],
+        tfidf_matrix[1:],
+    )[0]
+    ranked_indices = np.argsort(-similarities)
+    return [
+        (int(index), max(0.0, min(1.0, float(similarities[index]))))
+        for index in ranked_indices
+    ]

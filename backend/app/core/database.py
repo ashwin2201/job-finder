@@ -10,6 +10,8 @@ from core.config import settings
 import os
 from dotenv import load_dotenv
 
+import models  # noqa: F401
+
 load_dotenv()
 
 

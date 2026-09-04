@@ -1,0 +1,58 @@
+{
+  "$schema": "node_modules/eslint-plugin-project-structure/independentModules.schema.json",
+  "modules": [
+    {
+      "name": "App folder",
+      "pattern": "src/app/**",
+      "allowImportsFrom": [
+        "src/app/globals.css",
+        "{sharedImports}",
+        "src/features/**"
+      ],
+      "errorMessage": "The app folder may compose features and shared modules only."
+    },
+
+    {
+      "name": "Features",
+      "pattern": "src/features/**",
+      "allowImportsFrom": ["{family_3}/**", "{sharedImports}"],
+      "errorMessage": "A feature may import only shared modules and files from its own feature family."
+    },
+
+    {
+      "name": "Shared",
+      "pattern": [
+        "src/components/**",
+        "src/lib/**",
+        "src/types/**"
+      ],
+      "allowImportsFrom": ["{sharedImports}"],
+      "errorMessage": "Shared modules may not import from features or app routes."
+    },
+
+    {
+      "name": "Framework entrypoints",
+      "pattern": "src/middleware.ts",
+      "allowImportsFrom": ["{sharedImports}"],
+      "errorMessage": "Framework entrypoints may import shared modules only."
+    },
+
+    // Source files not covered above are denied by default. Add a deliberate
+    // module rule whenever a new top-level source boundary is introduced.
+    {
+      "name": "Unknown source files",
+      "pattern": "src/**/*.{js,jsx,cjs,mjs,ts,tsx}",
+      "allowImportsFrom": [],
+      "allowExternalImports": false,
+      "errorMessage": "This source file is not assigned to a module in independentModules.jsonc."
+    }
+  ],
+
+  "reusableImportPatterns": {
+    "sharedImports": [
+      "src/components/**",
+      "src/lib/**",
+      "src/types/**"
+    ]
+  }
+}

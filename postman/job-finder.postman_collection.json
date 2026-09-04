@@ -1,0 +1,626 @@
+{
+  "info": {
+    "_postman_id": "ef60627d-c1da-4ecb-935a-4e16dcf94069",
+    "name": "Job Finder - Identity and Employers",
+    "description": "Tests the identity, company membership, employer job, and public job APIs. Run the folders from top to bottom. Set clerkToken to a Clerk session token whose sub matches clerkUserId. For membership tests, set memberClerkToken and memberClerkUserId for a second Clerk user. The Clerk webhook requests require clerkWebhookSecret (the whsec_ value from Clerk).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{clerkToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.test('Response is not a server error', function () {",
+          "  pm.expect(pm.response.code).to.be.below(500);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "clerkToken",
+      "value": ""
+    },
+    {
+      "key": "clerkUserId",
+      "value": "user_replace_me"
+    },
+    {
+      "key": "clerkEmail",
+      "value": "owner@example.com"
+    },
+    {
+      "key": "memberClerkToken",
+      "value": ""
+    },
+    {
+      "key": "memberClerkUserId",
+      "value": "user_replace_member"
+    },
+    {
+      "key": "memberClerkEmail",
+      "value": "recruiter@example.com"
+    },
+    {
+      "key": "clerkWebhookSecret",
+      "value": ""
+    },
+    {
+      "key": "currentUserId",
+      "value": ""
+    },
+    {
+      "key": "memberUserId",
+      "value": ""
+    },
+    {
+      "key": "companyId",
+      "value": ""
+    },
+    {
+      "key": "jobId",
+      "value": ""
+    },
+    {
+      "key": "svixId",
+      "value": ""
+    },
+    {
+      "key": "svixTimestamp",
+      "value": ""
+    },
+    {
+      "key": "svixSignature",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Clerk Provisioning",
+      "description": "Optional when Clerk is already sending webhooks to the backend. These requests reproduce Clerk user.created events and sign them with clerkWebhookSecret.",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const CryptoJS = require('crypto-js');",
+              "const configuredSecret = pm.collectionVariables.get('clerkWebhookSecret') || '';",
+              "if (!configuredSecret) { throw new Error('Set clerkWebhookSecret before sending Clerk webhook requests'); }",
+              "const secret = configuredSecret.replace(/^whsec_/, '');",
+              "const body = pm.variables.replaceIn(pm.request.body.raw);",
+              "pm.request.body.update(body);",
+              "const messageId = `msg_postman_${Date.now()}`;",
+              "const timestamp = Math.floor(Date.now() / 1000).toString();",
+              "const signedContent = `${messageId}.${timestamp}.${body}`;",
+              "const digest = CryptoJS.HmacSHA256(signedContent, CryptoJS.enc.Base64.parse(secret));",
+              "pm.variables.set('svixId', messageId);",
+              "pm.variables.set('svixTimestamp', timestamp);",
+              "pm.variables.set('svixSignature', `v1,${CryptoJS.enc.Base64.stringify(digest)}`);"
+            ]
+          }
+        }
+      ],
+      "item": [
+        {
+          "name": "Provision Primary User",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "svix-id",
+                "value": "{{svixId}}"
+              },
+              {
+                "key": "svix-timestamp",
+                "value": "{{svixTimestamp}}"
+              },
+              {
+                "key": "svix-signature",
+                "value": "{{svixSignature}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"user.created\",\n  \"data\": {\n    \"id\": \"{{clerkUserId}}\",\n    \"first_name\": \"Postman\",\n    \"last_name\": \"Owner\",\n    \"primary_email_address_id\": \"email_primary\",\n    \"email_addresses\": [\n      {\n        \"id\": \"email_primary\",\n        \"email_address\": \"{{clerkEmail}}\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/webhooks/clerk"
+          },
+          "response": []
+        },
+        {
+          "name": "Provision Member User",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "svix-id",
+                "value": "{{svixId}}"
+              },
+              {
+                "key": "svix-timestamp",
+                "value": "{{svixTimestamp}}"
+              },
+              {
+                "key": "svix-signature",
+                "value": "{{svixSignature}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"user.created\",\n  \"data\": {\n    \"id\": \"{{memberClerkUserId}}\",\n    \"first_name\": \"Postman\",\n    \"last_name\": \"Recruiter\",\n    \"primary_email_address_id\": \"email_member\",\n    \"email_addresses\": [\n      {\n        \"id\": \"email_member\",\n        \"email_address\": \"{{memberClerkEmail}}\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/webhooks/clerk"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Identity",
+      "item": [
+        {
+          "name": "Get My Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Account returned', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "  const body = pm.response.json();",
+                  "  pm.collectionVariables.set('currentUserId', body.id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Update My Account",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"display_name\": \"Postman Owner\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/me/profile"
+          },
+          "response": []
+        },
+        {
+          "name": "Update My Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"headline\": \"Engineering Leader\",\n  \"bio\": \"Testing the Job Finder API with Postman.\",\n  \"location\": \"Tokyo\",\n  \"visibility\": \"public\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/me/profile"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Member Account and Save Internal ID",
+          "description": "Uses the second Clerk user's token and saves the backend UUID needed by the membership APIs.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Member account returned', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.collectionVariables.set('memberUserId', pm.response.json().id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{memberClerkToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/me"
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Companies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/me/companies"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Companies and Memberships",
+      "item": [
+        {
+          "name": "Create Company",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Company created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "  pm.collectionVariables.set('companyId', pm.response.json().id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Industries\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Company",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Company",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Industries Japan\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies/{{companyId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "List Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/members"
+          },
+          "response": []
+        },
+        {
+          "name": "Add Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{memberUserId}}\",\n  \"role\": \"recruiter\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/members"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Recruiter Membership",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"admin\",\n  \"status\": \"active\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/members/{{memberUserId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Employer Jobs",
+      "item": [
+        {
+          "name": "List Company Jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Draft Job",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Draft job created', function () {",
+                  "  pm.response.to.have.status(201);",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body.status).to.eql('draft');",
+                  "  pm.collectionVariables.set('jobId', body.id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Platform Engineer\",\n  \"location\": \"Tokyo\",\n  \"description\": \"Build and operate reliable backend APIs.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Company Job",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs/{{jobId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Draft Job",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Platform Engineer\",\n  \"description\": \"Build, operate, and improve reliable backend APIs.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs/{{jobId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Publish Job",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs/{{jobId}}/publish"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Public Jobs",
+      "description": "Public endpoints use no authentication and only expose published jobs.",
+      "item": [
+        {
+          "name": "List Published Jobs",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/jobs?page=1&page_size=20"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Published Job",
+          "description": "Run this after Publish Job and before Close Job. Closed jobs correctly return 404 here.",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{baseUrl}}/api/jobs/{{jobId}}"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Cleanup (Destructive)",
+      "description": "Run requests here individually. They remove membership access, archive the company, or deactivate the primary account.",
+      "item": [
+        {
+          "name": "Close Job",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/jobs/{{jobId}}/close"
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}/members/{{memberUserId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Archive Company",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/companies/{{companyId}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate My Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{baseUrl}}/api/me"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

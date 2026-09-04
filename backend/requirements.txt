@@ -39,6 +39,7 @@ psycopg2-binary
 python-dotenv
 python-multipart
 PyYAML
+PyJWT[crypto]
 requests
 rich
 rich-toolkit

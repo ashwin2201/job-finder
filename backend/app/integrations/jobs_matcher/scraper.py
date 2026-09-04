@@ -1,14 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
 
-from models.job import Job
-
 base_url = "https://jobs.gaijinpot.com"
-r = requests.get(base_url + "/en/job")
-
-soup = BeautifulSoup(r.content, "lxml")
 
 def scrape_jobs():
+    response = requests.get(base_url + "/en/job", timeout=15)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content, "lxml")
     jobs = []
     job_listings = soup.find_all("div", class_="card")
     for job in job_listings:
@@ -38,7 +36,8 @@ def get_job_description(job: BeautifulSoup):
     job_id = job_id['href']
     print(f"Fetching job description for ID: {job_id}")
     job_description_page = base_url + job_id
-    job_description_response = requests.get(job_description_page)
+    job_description_response = requests.get(job_description_page, timeout=15)
+    job_description_response.raise_for_status()
     job_description_soup = BeautifulSoup(job_description_response.content, "lxml")
     description = job_description_soup.find("p", class_="card-item").text.strip()
     return description
